@@ -7,21 +7,41 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		611CFE1D1F9E2445007BD0FC /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611CFE1C1F9E2445007BD0FC /* CustomTextField.swift */; };
+		611CFE1F1F9E2AB3007BD0FC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611CFE1E1F9E2AB3007BD0FC /* Constants.swift */; };
+		611CFE211F9E4491007BD0FC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611CFE201F9E4491007BD0FC /* User.swift */; };
+		611CFE231F9E4EAF007BD0FC /* asCompanyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611CFE221F9E4EAF007BD0FC /* asCompanyVC.swift */; };
+		611CFE251F9E4EC1007BD0FC /* asUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611CFE241F9E4EC1007BD0FC /* asUserVC.swift */; };
+		611CFE271F9E5EA8007BD0FC /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611CFE261F9E5EA8007BD0FC /* CustomView.swift */; };
+		61988F471F9E80FD007C5035 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61988F461F9E80FD007C5035 /* ProfileVC.swift */; };
+		61988F491F9E890A007C5035 /* JobDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61988F481F9E890A007C5035 /* JobDetailVC.swift */; };
 		61CFE40D1F9E1C4300B98CFE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CFE40C1F9E1C4300B98CFE /* AppDelegate.swift */; };
-		61CFE40F1F9E1C4300B98CFE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CFE40E1F9E1C4300B98CFE /* ViewController.swift */; };
+		61CFE40F1F9E1C4300B98CFE /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CFE40E1F9E1C4300B98CFE /* LoginVC.swift */; };
 		61CFE4121F9E1C4300B98CFE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61CFE4101F9E1C4300B98CFE /* Main.storyboard */; };
 		61CFE4141F9E1C4300B98CFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61CFE4131F9E1C4300B98CFE /* Assets.xcassets */; };
 		61CFE4171F9E1C4300B98CFE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61CFE4151F9E1C4300B98CFE /* LaunchScreen.storyboard */; };
+		61CFE4241F9E1EC500B98CFE /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CFE4231F9E1EC500B98CFE /* RoundedButton.swift */; };
+		61CFE4261F9E212100B98CFE /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CFE4251F9E212100B98CFE /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		611CFE1C1F9E2445007BD0FC /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		611CFE1E1F9E2AB3007BD0FC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		611CFE201F9E4491007BD0FC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		611CFE221F9E4EAF007BD0FC /* asCompanyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = asCompanyVC.swift; sourceTree = "<group>"; };
+		611CFE241F9E4EC1007BD0FC /* asUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = asUserVC.swift; sourceTree = "<group>"; };
+		611CFE261F9E5EA8007BD0FC /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
+		61988F461F9E80FD007C5035 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		61988F481F9E890A007C5035 /* JobDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailVC.swift; sourceTree = "<group>"; };
 		61CFE4091F9E1C4300B98CFE /* FindYourDreamJob.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindYourDreamJob.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61CFE40C1F9E1C4300B98CFE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		61CFE40E1F9E1C4300B98CFE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		61CFE40E1F9E1C4300B98CFE /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		61CFE4111F9E1C4300B98CFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		61CFE4131F9E1C4300B98CFE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		61CFE4161F9E1C4300B98CFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		61CFE4181F9E1C4300B98CFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		61CFE4231F9E1EC500B98CFE /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		61CFE4251F9E212100B98CFE /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +55,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		61988F4A1F9E9096007C5035 /* UserVC's */ = {
+			isa = PBXGroup;
+			children = (
+				61988F461F9E80FD007C5035 /* ProfileVC.swift */,
+				611CFE241F9E4EC1007BD0FC /* asUserVC.swift */,
+			);
+			path = "UserVC's";
+			sourceTree = "<group>";
+		};
 		61CFE4001F9E1C4300B98CFE = {
 			isa = PBXGroup;
 			children = (
@@ -54,14 +83,47 @@
 		61CFE40B1F9E1C4300B98CFE /* FindYourDreamJob */ = {
 			isa = PBXGroup;
 			children = (
+				61CFE4251F9E212100B98CFE /* Extensions.swift */,
+				611CFE1E1F9E2AB3007BD0FC /* Constants.swift */,
+				61CFE41F1F9E1C6D00B98CFE /* Model */,
+				61CFE4201F9E1C7600B98CFE /* Views */,
+				61CFE41E1F9E1C6700B98CFE /* Controllers */,
 				61CFE40C1F9E1C4300B98CFE /* AppDelegate.swift */,
-				61CFE40E1F9E1C4300B98CFE /* ViewController.swift */,
 				61CFE4101F9E1C4300B98CFE /* Main.storyboard */,
 				61CFE4131F9E1C4300B98CFE /* Assets.xcassets */,
 				61CFE4151F9E1C4300B98CFE /* LaunchScreen.storyboard */,
 				61CFE4181F9E1C4300B98CFE /* Info.plist */,
 			);
 			path = FindYourDreamJob;
+			sourceTree = "<group>";
+		};
+		61CFE41E1F9E1C6700B98CFE /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				61988F4A1F9E9096007C5035 /* UserVC's */,
+				61CFE40E1F9E1C4300B98CFE /* LoginVC.swift */,
+				61988F481F9E890A007C5035 /* JobDetailVC.swift */,
+				611CFE221F9E4EAF007BD0FC /* asCompanyVC.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		61CFE41F1F9E1C6D00B98CFE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				611CFE201F9E4491007BD0FC /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		61CFE4201F9E1C7600B98CFE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				61CFE4231F9E1EC500B98CFE /* RoundedButton.swift */,
+				611CFE1C1F9E2445007BD0FC /* CustomTextField.swift */,
+				611CFE261F9E5EA8007BD0FC /* CustomView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,8 +198,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				61CFE40F1F9E1C4300B98CFE /* ViewController.swift in Sources */,
+				61CFE40F1F9E1C4300B98CFE /* LoginVC.swift in Sources */,
+				61CFE4241F9E1EC500B98CFE /* RoundedButton.swift in Sources */,
 				61CFE40D1F9E1C4300B98CFE /* AppDelegate.swift in Sources */,
+				61CFE4261F9E212100B98CFE /* Extensions.swift in Sources */,
+				611CFE1D1F9E2445007BD0FC /* CustomTextField.swift in Sources */,
+				611CFE271F9E5EA8007BD0FC /* CustomView.swift in Sources */,
+				611CFE231F9E4EAF007BD0FC /* asCompanyVC.swift in Sources */,
+				611CFE1F1F9E2AB3007BD0FC /* Constants.swift in Sources */,
+				611CFE251F9E4EC1007BD0FC /* asUserVC.swift in Sources */,
+				61988F471F9E80FD007C5035 /* ProfileVC.swift in Sources */,
+				611CFE211F9E4491007BD0FC /* User.swift in Sources */,
+				61988F491F9E890A007C5035 /* JobDetailVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
