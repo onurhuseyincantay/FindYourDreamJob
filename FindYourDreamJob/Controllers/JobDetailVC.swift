@@ -16,6 +16,9 @@ class JobDetailVC: UIViewController {
      
     }
     
-   
+    @IBAction func backToJobs(_ sender: UIButton) {
+    self.dismiss(animated: true, completion: nil)
+    }
+    
     
 }

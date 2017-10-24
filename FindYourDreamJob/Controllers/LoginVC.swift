@@ -49,15 +49,17 @@ class LoginVC: UIViewController ,UITextFieldDelegate{
         }
         
     }
-    var user = User(companyNameorNickname: "a", workArea: "a", email: "a", password: "a", isCompany: false)
+    var user =  User(companyNameorNickname: "a", email: "a", password: "a")
+    var companyUser = CompanyUser(workArea: "a", companyNameorNickname: "a", email: "a", password: "a")
+    
  //burası da öyle
     func loginPressed() {
-        if user.isCompany{ //burası test data
+    
             performSegue(withIdentifier: "asCompany", sender: nil)
             
-        }else{
-            performSegue(withIdentifier: "asUser", sender: nil)
-        }
+        
+           // performSegue(withIdentifier: "asUser", sender: nil)
+        
    }
     func registerPressed() {
         

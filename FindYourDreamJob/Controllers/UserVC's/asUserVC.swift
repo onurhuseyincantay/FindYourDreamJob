@@ -39,11 +39,14 @@ class asUserVC: UIViewController,UITabBarDelegate,UITableViewDataSource,UITableV
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "jobSelect", sender: nil)//senderda post bilgileri olacak
+        performSegue(withIdentifier: "jobSelect", sender: nil)
+  
+        //senderda post bilgileri olacak
     }
     
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        performSegue(withIdentifier: "Profile", sender: tabBar)
+        performSegue(withIdentifier: "userProfile", sender: tabBar)
+        tabBar.selectedItem = tabBar.items?[0]
     }
    
     

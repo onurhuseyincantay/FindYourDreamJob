@@ -176,7 +176,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="109.59999999999999" y="33.733133433283363"/>
+            <point key="canvasLocation" x="-794" y="101"/>
         </scene>
         <!--As CompanyVC-->
         <scene sceneID="vSl-PQ-I1g">
@@ -229,20 +229,32 @@
                                     <string>Title</string>
                                 </scopeButtonTitles>
                             </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ohY-hS-VNg">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ohY-hS-VNg">
                                 <rect key="frame" x="0.0" y="126" width="375" height="541"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="jobCell" rowHeight="275" id="wKu-Bz-BmY">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="jobCell" rowHeight="275" id="wKu-Bz-BmY">
                                         <rect key="frame" x="0.0" y="28" width="375" height="275"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wKu-Bz-BmY" id="Q2W-f2-lC3">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="274.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="275"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ni-Tg-15E" customClass="CustomView" customModule="FindYourDreamJob" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="8" width="359" height="258.5"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q93-H0-iAm">
+                                                            <rect key="frame" x="10" y="10" width="339" height="238.5"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </view>
+                                                    </subviews>
                                                     <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="q93-H0-iAm" secondAttribute="trailing" constant="10" id="2sh-mk-FO3"/>
+                                                        <constraint firstAttribute="bottom" secondItem="q93-H0-iAm" secondAttribute="bottom" constant="10" id="cvq-nI-IHM"/>
+                                                        <constraint firstItem="q93-H0-iAm" firstAttribute="leading" secondItem="2Ni-Tg-15E" secondAttribute="leading" constant="10" id="rkD-CV-koL"/>
+                                                        <constraint firstItem="q93-H0-iAm" firstAttribute="top" secondItem="2Ni-Tg-15E" secondAttribute="top" constant="10" id="s5t-ml-udC"/>
+                                                    </constraints>
                                                 </view>
                                             </subviews>
                                             <constraints>
@@ -260,9 +272,9 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
                                     <tabBarItem title="Home" image="Home" landscapeImage="Home" largeContentSizeImage="Home" selectedImage="Home" id="ubS-lB-WbB"/>
-                                    <tabBarItem title="Posting Jobs" image="Posting Job" landscapeImage="Posting Job" largeContentSizeImage="Posting Job" id="GVN-cT-rWc"/>
-                                    <tabBarItem title="Profile" image="CompanyProfile" landscapeImage="CompanyProfile" largeContentSizeImage="CompanyProfile" id="plN-cJ-a4q"/>
-                                    <tabBarItem title="Applyments" image="applyments" landscapeImage="applyments" largeContentSizeImage="applyments" id="H2I-Hc-G09"/>
+                                    <tabBarItem tag="1" title="Posting Jobs" image="Posting Job" landscapeImage="Posting Job" largeContentSizeImage="Posting Job" id="GVN-cT-rWc"/>
+                                    <tabBarItem tag="2" title="Profile" image="CompanyProfile" landscapeImage="CompanyProfile" largeContentSizeImage="CompanyProfile" id="plN-cJ-a4q"/>
+                                    <tabBarItem tag="3" title="Applyments" image="applyments" landscapeImage="applyments" largeContentSizeImage="applyments" id="H2I-Hc-G09"/>
                                 </items>
                             </tabBar>
                         </subviews>
@@ -289,19 +301,21 @@
                         <viewLayoutGuide key="safeArea" id="Cwv-TK-Do9"/>
                     </view>
                     <connections>
+                        <outlet property="tabBar" destination="q93-IO-mfy" id="BLz-tW-wot"/>
                         <outlet property="tableView" destination="ohY-hS-VNg" id="ZMP-3L-Pvd"/>
-                        <segue destination="u42-XG-Xln" kind="showDetail" identifier="jobSelect" id="X2u-tB-KLb"/>
+                        <segue destination="u42-XG-Xln" kind="show" identifier="jobSelect" id="X2u-tB-KLb"/>
+                        <segue destination="zF6-Dz-3d5" kind="show" identifier="companyProfile" id="87C-ki-D5c"/>
+                        <segue destination="3xz-Jd-1Ri" kind="show" identifier="postingJobs" id="Ua6-V4-ucA"/>
+                        <segue destination="IP6-TA-W9d" kind="show" identifier="Applyments" id="tSm-eW-Mwm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i0X-0J-ziH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1232.8" y="233.43328335832086"/>
+            <point key="canvasLocation" x="441" y="209"/>
         </scene>
         <!--As UserVC-->
         <scene sceneID="DLr-Fd-RDm">
             <objects>
-                <exit id="Ml5-gA-y40" userLabel="Exit" sceneMemberID="exit"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sho-2s-9LY" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="8wd-aQ-HKP" customClass="asUserVC" customModule="FindYourDreamJob" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EX7-eL-rLK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -351,20 +365,33 @@
                                     <string>Title</string>
                                 </scopeButtonTitles>
                             </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mDO-wT-DR4">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mDO-wT-DR4">
                                 <rect key="frame" x="0.0" y="126" width="375" height="492"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="jobCell" rowHeight="275" id="y0p-k1-4uX">
                                         <rect key="frame" x="0.0" y="28" width="375" height="275"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="y0p-k1-4uX" id="ylL-H3-m9h">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="274.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="275"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8sQ-yo-hKA" customClass="CustomView" customModule="FindYourDreamJob" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="8" width="359" height="258.5"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nYL-4j-1YO">
+                                                            <rect key="frame" x="10" y="10" width="339" height="238.5"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </view>
+                                                    </subviews>
                                                     <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="nYL-4j-1YO" secondAttribute="bottom" constant="10" id="IO8-sh-fwV"/>
+                                                        <constraint firstItem="nYL-4j-1YO" firstAttribute="top" secondItem="8sQ-yo-hKA" secondAttribute="top" constant="10" id="LrQ-VO-Jhm"/>
+                                                        <constraint firstAttribute="trailing" secondItem="nYL-4j-1YO" secondAttribute="trailing" constant="10" id="crZ-m8-Kne"/>
+                                                        <constraint firstItem="nYL-4j-1YO" firstAttribute="leading" secondItem="8sQ-yo-hKA" secondAttribute="leading" constant="10" id="neB-6h-42h"/>
+                                                    </constraints>
                                                 </view>
                                             </subviews>
                                             <constraints>
@@ -377,9 +404,12 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <tabBar contentMode="scaleToFill" barStyle="black" itemPositioning="fill" translatesAutoresizingMaskIntoConstraints="NO" id="Vri-fb-A5Z">
+                            <tabBar contentMode="scaleToFill" barStyle="black" selectionIndicatorImage="Home" itemPositioning="fill" translatesAutoresizingMaskIntoConstraints="NO" id="Vri-fb-A5Z">
                                 <rect key="frame" x="0.0" y="618" width="375" height="49"/>
                                 <items>
+                                    <tabBarItem title="Home" image="Home" landscapeImage="Home" largeContentSizeImage="Home" selectedImage="Home" id="ufc-Bl-iz8">
+                                        <color key="badgeColor" red="0.0039215686269999999" green="0.3411764706" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </tabBarItem>
                                     <tabBarItem title="Profile" image="Profile" landscapeImage="Profile" largeContentSizeImage="Profile" selectedImage="Profile" id="xso-ZI-2gk"/>
                                 </items>
                             </tabBar>
@@ -406,16 +436,17 @@
                         <outlet property="tabBar" destination="Vri-fb-A5Z" id="eft-T6-XRg"/>
                         <outlet property="tableView" destination="mDO-wT-DR4" id="oqX-lj-lQB"/>
                         <segue destination="u42-XG-Xln" kind="showDetail" identifier="jobSelect" id="afj-rZ-g1S"/>
-                        <segue destination="zF6-Dz-3d5" kind="show" identifier="Profile" action="showDetailViewController:sender:" id="84V-Xg-2xc"/>
+                        <segue destination="zF6-Dz-3d5" kind="show" identifier="userProfile" action="showDetailViewController:sender:" id="84V-Xg-2xc"/>
                     </connections>
                 </viewController>
+                <exit id="Ml5-gA-y40" userLabel="Exit" sceneMemberID="exit"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sho-2s-9LY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1207.2" y="-608.54572713643188"/>
+            <point key="canvasLocation" x="441" y="-633"/>
         </scene>
         <!--JobDescription-->
         <scene sceneID="Dh5-FO-6fH">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dK2-kc-1pv" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="u42-XG-Xln" userLabel="JobDescription" customClass="JobDetailVC" customModule="FindYourDreamJob" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XpR-D3-U44">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -432,7 +463,7 @@
                                         </constraints>
                                         <state key="normal" image="Logout"/>
                                         <connections>
-                                            <action selector="backButton:" destination="u42-XG-Xln" eventType="touchUpInside" id="MKX-VN-oal"/>
+                                            <action selector="backToJobs:" destination="u42-XG-Xln" eventType="touchUpInside" id="IZl-WL-wyk"/>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="z3a-F6-mte">
@@ -462,14 +493,143 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sDl-28-T0c"/>
                     </view>
+                    <navigationItem key="navigationItem" id="khY-Dd-JCc"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dK2-kc-1pv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2319" y="233"/>
+            <point key="canvasLocation" x="1564" y="-634"/>
+        </scene>
+        <!--postingJobs-->
+        <scene sceneID="SYR-WO-CgI">
+            <objects>
+                <viewController id="3xz-Jd-1Ri" userLabel="postingJobs" customClass="postingJobsVC" customModule="FindYourDreamJob" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pZo-dK-hQg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view alpha="0.85000002384185791" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eK3-Mo-QM7">
+                                <rect key="frame" x="0.0" y="20" width="375" height="50"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="pJV-4D-evU">
+                                        <rect key="frame" x="93" y="8" width="189" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="18Z-mK-hne"/>
+                                            <constraint firstAttribute="width" constant="189" id="byh-fT-BBc"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0039215686269999999" green="0.3411764706" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="6DM-b5-2ZA"/>
+                                    <constraint firstItem="pJV-4D-evU" firstAttribute="centerX" secondItem="eK3-Mo-QM7" secondAttribute="centerX" id="Vmq-5Z-rtb"/>
+                                    <constraint firstItem="pJV-4D-evU" firstAttribute="centerY" secondItem="eK3-Mo-QM7" secondAttribute="centerY" id="pEf-59-Tbf"/>
+                                </constraints>
+                            </view>
+                            <tabBar contentMode="scaleToFill" barStyle="black" itemPositioning="fill" translatesAutoresizingMaskIntoConstraints="NO" id="Aw1-nY-GhH">
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="UhG-ml-kkx"/>
+                                </constraints>
+                                <items>
+                                    <tabBarItem title="Home" image="Home" landscapeImage="Home" largeContentSizeImage="Home" selectedImage="Home" id="aTV-db-yTt"/>
+                                    <tabBarItem title="Posting Jobs" image="Posting Job" landscapeImage="Posting Job" largeContentSizeImage="Posting Job" id="blL-2n-LqM"/>
+                                </items>
+                            </tabBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Posting Jobs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DSA-Vc-L7b">
+                                <rect key="frame" x="129" y="323" width="168" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="eK3-Mo-QM7" firstAttribute="top" secondItem="99h-p6-mXw" secondAttribute="top" id="7dd-b9-ZgI"/>
+                            <constraint firstItem="Aw1-nY-GhH" firstAttribute="leading" secondItem="99h-p6-mXw" secondAttribute="leading" id="WU7-go-y0W"/>
+                            <constraint firstItem="eK3-Mo-QM7" firstAttribute="leading" secondItem="99h-p6-mXw" secondAttribute="leading" id="pwg-cr-1Zv"/>
+                            <constraint firstAttribute="trailing" secondItem="Aw1-nY-GhH" secondAttribute="trailing" id="r8d-Zh-S33"/>
+                            <constraint firstItem="99h-p6-mXw" firstAttribute="bottom" secondItem="Aw1-nY-GhH" secondAttribute="bottom" id="wZq-DI-Zk5"/>
+                            <constraint firstAttribute="trailing" secondItem="eK3-Mo-QM7" secondAttribute="trailing" id="ztW-ho-5jb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="99h-p6-mXw"/>
+                    </view>
+                    <connections>
+                        <outlet property="tabBar" destination="Aw1-nY-GhH" id="cTE-c1-vFh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d7j-HE-EQK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="440.80000000000001" y="1035.832083958021"/>
+        </scene>
+        <!--Applyments-->
+        <scene sceneID="fwG-2E-cjH">
+            <objects>
+                <viewController id="IP6-TA-W9d" userLabel="Applyments" customClass="applymentsVC" customModule="FindYourDreamJob" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JOC-fF-pnb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tabBar contentMode="scaleToFill" barStyle="black" itemPositioning="fill" translatesAutoresizingMaskIntoConstraints="NO" id="PaW-o1-zen">
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="VjF-CO-WWu"/>
+                                </constraints>
+                                <items>
+                                    <tabBarItem title="Home" image="Home" landscapeImage="Home" largeContentSizeImage="Home" selectedImage="Home" id="SLn-CK-NhG"/>
+                                    <tabBarItem title="Applyments" image="applyments" landscapeImage="applyments" largeContentSizeImage="applyments" id="3E7-jq-aoz"/>
+                                </items>
+                            </tabBar>
+                            <view alpha="0.85000002384185791" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MYe-HS-5SW">
+                                <rect key="frame" x="0.0" y="20" width="375" height="50"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="B7L-wA-MaM">
+                                        <rect key="frame" x="93" y="8" width="189" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="EGe-4P-27O"/>
+                                            <constraint firstAttribute="width" constant="189" id="xmF-Wy-dFd"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0039215686269999999" green="0.3411764706" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="K9S-DW-Cc2"/>
+                                    <constraint firstItem="B7L-wA-MaM" firstAttribute="centerY" secondItem="MYe-HS-5SW" secondAttribute="centerY" id="WIr-g7-M7x"/>
+                                    <constraint firstItem="B7L-wA-MaM" firstAttribute="centerX" secondItem="MYe-HS-5SW" secondAttribute="centerX" id="pAr-9r-XOS"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Applyments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBJ-GI-sKY">
+                                <rect key="frame" x="103" y="323" width="168" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="PaW-o1-zen" firstAttribute="leading" secondItem="JOC-fF-pnb" secondAttribute="leading" id="9MZ-rr-U36"/>
+                            <constraint firstItem="y6r-HL-qek" firstAttribute="trailing" secondItem="MYe-HS-5SW" secondAttribute="trailing" id="OoT-eX-NO9"/>
+                            <constraint firstItem="MYe-HS-5SW" firstAttribute="top" secondItem="y6r-HL-qek" secondAttribute="top" id="RUD-KV-h3q"/>
+                            <constraint firstItem="y6r-HL-qek" firstAttribute="trailing" secondItem="PaW-o1-zen" secondAttribute="trailing" id="fO0-iu-uyG"/>
+                            <constraint firstItem="MYe-HS-5SW" firstAttribute="leading" secondItem="JOC-fF-pnb" secondAttribute="leading" id="ktO-F0-IJd"/>
+                            <constraint firstItem="y6r-HL-qek" firstAttribute="bottom" secondItem="PaW-o1-zen" secondAttribute="bottom" id="kuF-ff-WxP"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="y6r-HL-qek"/>
+                    </view>
+                    <connections>
+                        <outlet property="tabBar" destination="PaW-o1-zen" id="yNj-nQ-4sS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w1N-eA-0Nv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1564" y="1035.832083958021"/>
         </scene>
         <!--ProfileVC-->
         <scene sceneID="h1X-l5-WuW">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4sW-Uo-wkC" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="zF6-Dz-3d5" userLabel="ProfileVC" customClass="ProfileVC" customModule="FindYourDreamJob" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OVz-TV-2ll">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -481,19 +641,12 @@
                                     <tabBarItem title="Home" image="Home" landscapeImage="Home" largeContentSizeImage="Home" selectedImage="Home" id="RMh-ay-we0">
                                         <color key="badgeColor" red="0.0039215686269999999" green="0.3411764706" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </tabBarItem>
+                                    <tabBarItem tag="1" title="Profile" image="Profile" landscapeImage="Profile" largeContentSizeImage="Profile" selectedImage="Profile" id="7aa-sI-GVD"/>
                                 </items>
                             </tabBar>
                             <view alpha="0.85000002384185791" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CDZ-Pl-PXa">
                                 <rect key="frame" x="0.0" y="20" width="375" height="50"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wgi-EE-3zI">
-                                        <rect key="frame" x="13" y="7" width="36" height="36"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="36" id="Sw3-KL-Jcw"/>
-                                            <constraint firstAttribute="height" constant="36" id="f8H-ZI-AVx"/>
-                                        </constraints>
-                                        <state key="normal" image="button:Wgi-EE-3zI:image"/>
-                                    </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="qPK-pZ-kT7">
                                         <rect key="frame" x="93" y="8" width="189" height="34"/>
                                         <constraints>
@@ -501,34 +654,97 @@
                                             <constraint firstAttribute="width" constant="189" id="RGk-PD-FbS"/>
                                         </constraints>
                                     </imageView>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleAspectFill" semanticContentAttribute="forceRightToLeft" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HEJ-Td-JLx">
+                                        <rect key="frame" x="353" y="27" width="14" height="15"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="stopEditing">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="stopEditingpressed:" destination="zF6-Dz-3d5" eventType="touchUpInside" id="LdO-Vq-2B4"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0039215686269999999" green="0.3411764706" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstItem="qPK-pZ-kT7" firstAttribute="centerY" secondItem="CDZ-Pl-PXa" secondAttribute="centerY" id="2H3-kR-SSl"/>
-                                    <constraint firstAttribute="bottom" secondItem="Wgi-EE-3zI" secondAttribute="bottom" constant="7" id="ByE-fO-M9w"/>
+                                    <constraint firstAttribute="bottom" secondItem="HEJ-Td-JLx" secondAttribute="bottom" constant="8" id="Ben-nH-5XK"/>
                                     <constraint firstAttribute="height" constant="50" id="FoL-R7-CEd"/>
+                                    <constraint firstAttribute="trailing" secondItem="HEJ-Td-JLx" secondAttribute="trailing" constant="8" id="amk-6c-Ge7"/>
                                     <constraint firstItem="qPK-pZ-kT7" firstAttribute="centerX" secondItem="CDZ-Pl-PXa" secondAttribute="centerX" id="gNq-Af-1GM"/>
-                                    <constraint firstItem="Wgi-EE-3zI" firstAttribute="leading" secondItem="CDZ-Pl-PXa" secondAttribute="leading" constant="13" id="htE-Tj-iZE"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HEf-4H-f6k" customClass="GradientView" customModule="FindYourDreamJob" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="70" width="375" height="221"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profileImage" translatesAutoresizingMaskIntoConstraints="NO" id="7Rp-vE-iDt" customClass="RoundedImage" customModule="FindYourDreamJob" customModuleProvider="target">
+                                        <rect key="frame" x="119" y="46" width="136" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0039215686269999999" green="0.3411764706" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="RDo-hs-m7d">
+                                <rect key="frame" x="0.0" y="571" width="375" height="47"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9j1-WZ-hFo" customClass="CustomButton" customModule="FindYourDreamJob" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="47"/>
+                                        <color key="backgroundColor" red="0.26274509800000001" green="0.61176470589999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Avenir-BlackOblique" family="Avenir" pointSize="25"/>
+                                        <state key="normal" title="Edit">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="editPressed:" destination="zF6-Dz-3d5" eventType="touchUpInside" id="1Md-DS-rS9"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" tag="1" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RCK-Dx-6NK" customClass="CustomButton" customModule="FindYourDreamJob" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="47"/>
+                                        <color key="backgroundColor" red="0.26274509800000001" green="0.61176470589999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="47" id="HLL-5k-mXu"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Avenir-BlackOblique" family="Avenir" pointSize="25"/>
+                                        <state key="normal">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="completePressed:" destination="zF6-Dz-3d5" eventType="touchUpInside" id="xa8-Ji-wBm"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="47" id="8Ou-xy-12p"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="drt-DT-jaM" secondAttribute="trailing" id="5ab-mV-PfQ"/>
+                            <constraint firstItem="drt-DT-jaM" firstAttribute="top" secondItem="RDo-hs-m7d" secondAttribute="bottom" id="R90-Yu-8Px"/>
                             <constraint firstItem="5dj-Hj-WuG" firstAttribute="trailing" secondItem="CDZ-Pl-PXa" secondAttribute="trailing" id="TP9-VL-jyr"/>
                             <constraint firstItem="CDZ-Pl-PXa" firstAttribute="leading" secondItem="OVz-TV-2ll" secondAttribute="leading" id="UNi-BB-T55"/>
                             <constraint firstItem="CDZ-Pl-PXa" firstAttribute="top" secondItem="5dj-Hj-WuG" secondAttribute="top" id="ZKK-dm-y76"/>
+                            <constraint firstItem="5dj-Hj-WuG" firstAttribute="trailing" secondItem="RDo-hs-m7d" secondAttribute="trailing" id="Zfo-9c-909"/>
                             <constraint firstItem="drt-DT-jaM" firstAttribute="leading" secondItem="5dj-Hj-WuG" secondAttribute="leading" id="dGo-CH-Mgo"/>
+                            <constraint firstItem="RDo-hs-m7d" firstAttribute="leading" secondItem="5dj-Hj-WuG" secondAttribute="leading" id="eeD-Gd-HrN"/>
                             <constraint firstItem="5dj-Hj-WuG" firstAttribute="bottom" secondItem="drt-DT-jaM" secondAttribute="bottom" id="xSd-DK-ed6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5dj-Hj-WuG"/>
                     </view>
                     <connections>
+                        <outlet property="completeButton" destination="RCK-Dx-6NK" id="tD1-cf-gQE"/>
+                        <outlet property="stopEditing" destination="HEJ-Td-JLx" id="psP-Nv-241"/>
                         <outlet property="tabBar" destination="drt-DT-jaM" id="Gww-Ve-sQ2"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4sW-Uo-wkC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2126" y="-609"/>
+            <point key="canvasLocation" x="1564" y="207.34632683658174"/>
         </scene>
     </scenes>
     <resources>
@@ -541,135 +757,11 @@
         <image name="Profile" width="20" height="24"/>
         <image name="Sign-In-Small---Default" width="292" height="40"/>
         <image name="applyments" width="28" height="36"/>
-        <image name="button:Wgi-EE-3zI:image" width="18" height="18">
-            <mutableData key="keyedArchiveRepresentation">
-YnBsaXN0MDDUAQIDBAUGVVZYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK8QEgcI
-ExQZHh8jJCsuMTtDR0tPUlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdz
-Vk5TUmVwc1dOU0NvbG9ygAKAERIgwAAAgAOAC1h7MTgsIDE4fdIVChYYWk5TLm9iamVjdHOhF4AEgArS
-FQoaHaIbHIAFgAaACRAA0iAKISJfEBROU1RJRkZSZXByZXNlbnRhdGlvboAHgAhPEQgSTU0AKgAABRgA
-AAAMAAAAfgAAALQAAACzAAAAswAAALMAAACzAAAAswAAALMAAACzAAAAswAAALMAAACzAAAAswAAALMA
-AAC0AAAAfwAAAA0AAAB+AAAAtwAAALUAAAC2AAAAtgAAALYAAAC2AAAAtgAAALYAAAC2AAAAtgAAALYA
-AAC2AAAAtgAAALYAAAC1AAAAtwAAAH4AAAC0AAAAtgAAAEMAAAAlAAAAJQAAACUAAAAlAAAAJQAAACUA
-AAAlAAAAJQAAACUAAAAlAAAAJQAAACUAAABDAAAAtgAAALQAAACzAAAAtgAAACEAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAhAAAAtgAAALMAAACzAAAAtgAAACUA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAABMAAABlAAAAFQAAAAAAAAAAAAAAAAAAAAAAAAAlAAAAtwAAALQA
-AACzAAAAtgAAACUAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAIgAAADEAAAAYwAAAAAAAAAAAAAAAAAAAAAA
-AAAkAAAAsgAAAK8AAACzAAAAtgAAACUAAAAAAAAAAAAAAAAAAAARAAAAiAAAAL4AAACIAAAAFAAAAAAA
-AAAAAAAAAAAAAAAAAAADAAAAFAAAABQAAACzAAAAtgAAACUAAAAAAAAAAAAAABEAAACJAAAAvQAAAJMA
-AAAaAAAABwAAAAkAAAAJAAAACQAAAAkAAAAIAAAABgAAAAYAAACzAAAAtgAAACUAAAAAAAAAEQAAAIsA
-AAC6AAAAtAAAAKsAAAClAAAApwAAAKcAAACnAAAApwAAAKcAAACnAAAApwAAAKcAAACzAAAAtgAAACUA
-AAAAAAAAEQAAAIsAAAC6AAAAtAAAAKsAAAClAAAApwAAAKcAAACnAAAApwAAAKcAAACnAAAApwAAAKcA
-AACzAAAAtgAAACUAAAAAAAAAAAAAABEAAACJAAAAvQAAAJMAAAAaAAAABwAAAAkAAAAJAAAACQAAAAkA
-AAAIAAAABgAAAAYAAACzAAAAtgAAACUAAAAAAAAAAAAAAAAAAAARAAAAiAAAAL4AAACIAAAAFAAAAAAA
-AAAAAAAAAAAAAAAAAAADAAAAFAAAABQAAACzAAAAtgAAACUAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAIgA
-AADEAAAAYwAAAAAAAAAAAAAAAAAAAAAAAAAkAAAAsgAAAK8AAACzAAAAtgAAACUAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAABMAAABlAAAAFQAAAAAAAAAAAAAAAAAAAAAAAAAlAAAAtwAAALQAAACzAAAAtgAAACEA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAhAAAAtgAAALMA
-AAC0AAAAtgAAAEMAAAAlAAAAJQAAACUAAAAlAAAAJQAAACUAAAAlAAAAJQAAACUAAAAlAAAAJQAAACUA
-AABDAAAAtgAAALQAAAB+AAAAtwAAALUAAAC2AAAAtgAAALYAAAC2AAAAtgAAALYAAAC2AAAAtgAAALYA
-AAC2AAAAtgAAALYAAAC1AAAAtwAAAH4AAAAMAAAAfgAAALQAAACzAAAAswAAALMAAACzAAAAswAAALMA
-AACzAAAAswAAALMAAACzAAAAswAAALMAAAC0AAAAfwAAAA0AEAEAAAMAAAABABIAAAEBAAMAAAABABIA
-AAECAAMAAAAEAAAF3gEDAAMAAAABAAEAAAEGAAMAAAABAAIAAAEKAAMAAAABAAEAAAERAAQAAAABAAAA
-CAESAAMAAAABAAEAAAEVAAMAAAABAAQAAAEWAAMAAAABABIAAAEXAAQAAAABAAAFEAEcAAMAAAABAAEA
-AAEoAAMAAAABAAIAAAFSAAMAAAABAAEAAAFTAAMAAAAEAAAF5odzAAcAAAIkAAAF7gAAAAAACAAIAAgA
-CAABAAEAAQABAAACJGFwcGwEAAAAbW50clJHQiBYWVogB+EABwAHAA0AFgAgYWNzcEFQUEwAAAAAQVBQ
-TAAAAAAAAAAAAAAAAAAAAAAAAPbWAAEAAAAA0y1hcHBsyhqVgiV/EE04mRPV0eoVggAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAKZGVzYwAAAPwAAABlY3BydAAAAWQAAAAjd3RwdAAAAYgAAAAUclhZ
-WgAAAZwAAAAUZ1hZWgAAAbAAAAAUYlhZWgAAAcQAAAAUclRSQwAAAdgAAAAgY2hhZAAAAfgAAAAsYlRS
-QwAAAdgAAAAgZ1RSQwAAAdgAAAAgZGVzYwAAAAAAAAALRGlzcGxheSBQMwAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAB0ZXh0AAAAAENvcHlyaWdodCBBcHBsZSBJbmMuLCAyMDE3AABYWVogAAAAAAAA81EAAQAAAAEW
-zFhZWiAAAAAAAACD3wAAPb////+7WFlaIAAAAAAAAEq/AACxNwAACrlYWVogAAAAAAAAKDgAABELAADI
-uXBhcmEAAAAAAAMAAAACZmYAAPKnAAANWQAAE9AAAApbc2YzMgAAAAAAAQxCAAAF3v//8yYAAAeTAAD9
-kP//+6L///2jAAAD3AAAwG7SJSYnKFokY2xhc3NuYW1lWCRjbGFzc2VzXxAQTlNCaXRtYXBJbWFnZVJl
-cKMnKSpaTlNJbWFnZVJlcFhOU09iamVjdNIlJiwtV05TQXJyYXmiLCrSJSYvMF5OU011dGFibGVBcnJh
-eaMvLCrVMjM0NQo2Nzg5OldOU1doaXRlXE5TQ29tcG9uZW50c1xOU0NvbG9yU3BhY2VfEBJOU0N1c3Rv
-bUNvbG9yU3BhY2VEMCAwAEMwIDAQA4AMgBDUPD0+Cj9AQUJUTlNJRFVOU0lDQ1dOU01vZGVsEAmADRAA
-gA/SRApFRldOUy5kYXRhTxERaAAAEWhhcHBsAgAAAG1udHJHUkFZWFlaIAfcAAgAFwAPAC4AD2Fjc3BB
-UFBMAAAAAG5vbmUAAAAAAAAAAAAAAAAAAAAAAAD21gABAAAAANMtYXBwbAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABWRlc2MAAADAAAAAeWRzY20AAAE8AAAH6GNwcnQA
-AAkkAAAAI3d0cHQAAAlIAAAAFGtUUkMAAAlcAAAIDGRlc2MAAAAAAAAAH0dlbmVyaWMgR3JheSBHYW1t
-YSAyLjIgUHJvZmlsZQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABtbHVjAAAAAAAAAB8AAAAMc2tTSwAAAC4A
-AAGEZGFESwAAADgAAAGyY2FFUwAAADgAAAHqdmlWTgAAAEAAAAIicHRCUgAAAEoAAAJidWtVQQAAACwA
-AAKsZnJGVQAAAD4AAALYaHVIVQAAADQAAAMWemhUVwAAAB4AAANKbmJOTwAAADoAAANoY3NDWgAAACgA
-AAOiaGVJTAAAACQAAAPKaXRJVAAAAE4AAAPucm9STwAAACoAAAQ8ZGVERQAAAE4AAARma29LUgAAACIA
-AAS0c3ZTRQAAADgAAAGyemhDTgAAAB4AAATWamFKUAAAACYAAAT0ZWxHUgAAACoAAAUacHRQTwAAAFIA
-AAVEbmxOTAAAAEAAAAWWZXNFUwAAAEwAAAXWdGhUSAAAADIAAAYidHJUUgAAACQAAAZUZmlGSQAAAEYA
-AAZ4aHJIUgAAAD4AAAa+cGxQTAAAAEoAAAb8cnVSVQAAADoAAAdGZW5VUwAAADwAAAeAYXJFRwAAACwA
-AAe8AFYBYQBlAG8AYgBlAGMAbgDhACAAcwBpAHYA4QAgAGcAYQBtAGEAIAAyACwAMgBHAGUAbgBlAHIA
-aQBzAGsAIABnAHIA5QAgADIALAAyACAAZwBhAG0AbQBhAHAAcgBvAGYAaQBsAEcAYQBtAG0AYQAgAGQA
-ZQAgAGcAcgBpAHMAbwBzACAAZwBlAG4A6AByAGkAYwBhACAAMgAuADIAQx6lAHUAIABoAOwAbgBoACAA
-TQDgAHUAIAB4AOEAbQAgAEMAaAB1AG4AZwAgAEcAYQBtAG0AYQAgADIALgAyAFAAZQByAGYAaQBsACAA
-RwBlAG4A6QByAGkAYwBvACAAZABhACAARwBhAG0AYQAgAGQAZQAgAEMAaQBuAHoAYQBzACAAMgAsADIE
-FwQwBDMEMAQ7BEwEPQQwACAARwByAGEAeQAtBDMEMAQ8BDAAIAAyAC4AMgBQAHIAbwBmAGkAbAAgAGcA
-6QBuAOkAcgBpAHEAdQBlACAAZwByAGkAcwAgAGcAYQBtAG0AYQAgADIALAAyAMEAbAB0AGEAbADhAG4A
-bwBzACAAcwB6APwAcgBrAGUAIABnAGEAbQBtAGEAIAAyAC4AMpAadShwcJaOUUlepgAgADIALgAyACCC
-cl9pY8+P8ABHAGUAbgBlAHIAaQBzAGsAIABnAHIA5QAgAGcAYQBtAG0AYQAgADIALAAyAC0AcAByAG8A
-ZgBpAGwATwBiAGUAYwBuAOEAIAFhAGUAZADhACAAZwBhAG0AYQAgADIALgAyBdIF0AXeBdQAIAXQBeQF
-1QXoACAF2wXcBdwF2QAgADIALgAyAFAAcgBvAGYAaQBsAG8AIABnAHIAaQBnAGkAbwAgAGcAZQBuAGUA
-cgBpAGMAbwAgAGQAZQBsAGwAYQAgAGcAYQBtAG0AYQAgADIALAAyAEcAYQBtAGEAIABnAHIAaQAgAGcA
-ZQBuAGUAcgBpAGMBAwAgADIALAAyAEEAbABsAGcAZQBtAGUAaQBuAGUAcwAgAEcAcgBhAHUAcwB0AHUA
-ZgBlAG4ALQBQAHIAbwBmAGkAbAAgAEcAYQBtAG0AYQAgADIALAAyx3y8GAAg1ozAyQAgrBC5yAAgADIA
-LgAyACDVBLhc0wzHfGZukBpwcF6mfPtlcAAgADIALgAyACBjz4/wZYdO9k4AgiwwsDDsMKQwrDDzMN4A
-IAAyAC4AMgAgMNcw7TDVMKEwpDDrA5MDtQO9A7kDugPMACADkwO6A8EDuQAgA5MDrAO8A7wDsQAgADIA
-LgAyAFAAZQByAGYAaQBsACAAZwBlAG4A6QByAGkAYwBvACAAZABlACAAYwBpAG4AegBlAG4AdABvAHMA
-IABkAGEAIABHAGEAbQBtAGEAIAAyACwAMgBBAGwAZwBlAG0AZQBlAG4AIABnAHIAaQBqAHMAIABnAGEA
-bQBtAGEAIAAyACwAMgAtAHAAcgBvAGYAaQBlAGwAUABlAHIAZgBpAGwAIABnAGUAbgDpAHIAaQBjAG8A
-IABkAGUAIABnAGEAbQBtAGEAIABkAGUAIABnAHIAaQBzAGUAcwAgADIALAAyDiMOMQ4HDioONQ5BDgEO
-IQ4hDjIOQA4BDiMOIg5MDhcOMQ5IDicORA4bACAAMgAuADIARwBlAG4AZQBsACAARwByAGkAIABHAGEA
-bQBhACAAMgAsADIAWQBsAGUAaQBuAGUAbgAgAGgAYQByAG0AYQBhAG4AIABnAGEAbQBtAGEAIAAyACwA
-MgAgAC0AcAByAG8AZgBpAGkAbABpAEcAZQBuAGUAcgBpAQ0AawBpACAARwByAGEAeQAgAEcAYQBtAG0A
-YQAgADIALgAyACAAcAByAG8AZgBpAGwAVQBuAGkAdwBlAHIAcwBhAGwAbgB5ACAAcAByAG8AZgBpAGwA
-IABzAHoAYQByAG8BWwBjAGkAIABnAGEAbQBtAGEAIAAyACwAMgQeBDEESQQwBE8AIARBBDUEQAQwBE8A
-IAQzBDAEPAQ8BDAAIAAyACwAMgAtBD8EQAQ+BEQEOAQ7BEwARwBlAG4AZQByAGkAYwAgAEcAcgBhAHkA
-IABHAGEAbQBtAGEAIAAyAC4AMgAgAFAAcgBvAGYAaQBsAGUGOgYnBkUGJwAgADIALgAyACAGRAZIBkYA
-IAYxBkUGJwYvBkoAIAY5BicGRXRleHQAAAAAQ29weXJpZ2h0IEFwcGxlIEluYy4sIDIwMTIAAFhZWiAA
-AAAAAADzUQABAAAAARbMY3VydgAAAAAAAAQAAAAABQAKAA8AFAAZAB4AIwAoAC0AMgA3ADsAQABFAEoA
-TwBUAFkAXgBjAGgAbQByAHcAfACBAIYAiwCQAJUAmgCfAKQAqQCuALIAtwC8AMEAxgDLANAA1QDbAOAA
-5QDrAPAA9gD7AQEBBwENARMBGQEfASUBKwEyATgBPgFFAUwBUgFZAWABZwFuAXUBfAGDAYsBkgGaAaEB
-qQGxAbkBwQHJAdEB2QHhAekB8gH6AgMCDAIUAh0CJgIvAjgCQQJLAlQCXQJnAnECegKEAo4CmAKiAqwC
-tgLBAssC1QLgAusC9QMAAwsDFgMhAy0DOANDA08DWgNmA3IDfgOKA5YDogOuA7oDxwPTA+AD7AP5BAYE
-EwQgBC0EOwRIBFUEYwRxBH4EjASaBKgEtgTEBNME4QTwBP4FDQUcBSsFOgVJBVgFZwV3BYYFlgWmBbUF
-xQXVBeUF9gYGBhYGJwY3BkgGWQZqBnsGjAadBq8GwAbRBuMG9QcHBxkHKwc9B08HYQd0B4YHmQesB78H
-0gflB/gICwgfCDIIRghaCG4IggiWCKoIvgjSCOcI+wkQCSUJOglPCWQJeQmPCaQJugnPCeUJ+woRCicK
-PQpUCmoKgQqYCq4KxQrcCvMLCwsiCzkLUQtpC4ALmAuwC8gL4Qv5DBIMKgxDDFwMdQyODKcMwAzZDPMN
-DQ0mDUANWg10DY4NqQ3DDd4N+A4TDi4OSQ5kDn8Omw62DtIO7g8JDyUPQQ9eD3oPlg+zD88P7BAJECYQ
-QxBhEH4QmxC5ENcQ9RETETERTxFtEYwRqhHJEegSBxImEkUSZBKEEqMSwxLjEwMTIxNDE2MTgxOkE8UT
-5RQGFCcUSRRqFIsUrRTOFPAVEhU0FVYVeBWbFb0V4BYDFiYWSRZsFo8WshbWFvoXHRdBF2UXiReuF9IX
-9xgbGEAYZRiKGK8Y1Rj6GSAZRRlrGZEZtxndGgQaKhpRGncanhrFGuwbFBs7G2MbihuyG9ocAhwqHFIc
-exyjHMwc9R0eHUcdcB2ZHcMd7B4WHkAeah6UHr4e6R8THz4faR+UH78f6iAVIEEgbCCYIMQg8CEcIUgh
-dSGhIc4h+yInIlUigiKvIt0jCiM4I2YjlCPCI/AkHyRNJHwkqyTaJQklOCVoJZclxyX3JicmVyaHJrcm
-6CcYJ0kneierJ9woDSg/KHEooijUKQYpOClrKZ0p0CoCKjUqaCqbKs8rAis2K2krnSvRLAUsOSxuLKIs
-1y0MLUEtdi2rLeEuFi5MLoIuty7uLyQvWi+RL8cv/jA1MGwwpDDbMRIxSjGCMbox8jIqMmMymzLUMw0z
-RjN/M7gz8TQrNGU0njTYNRM1TTWHNcI1/TY3NnI2rjbpNyQ3YDecN9c4FDhQOIw4yDkFOUI5fzm8Ofk6
-Njp0OrI67zstO2s7qjvoPCc8ZTykPOM9Ij1hPaE94D4gPmA+oD7gPyE/YT+iP+JAI0BkQKZA50EpQWpB
-rEHuQjBCckK1QvdDOkN9Q8BEA0RHRIpEzkUSRVVFmkXeRiJGZ0arRvBHNUd7R8BIBUhLSJFI10kdSWNJ
-qUnwSjdKfUrESwxLU0uaS+JMKkxyTLpNAk1KTZNN3E4lTm5Ot08AT0lPk0/dUCdQcVC7UQZRUFGbUeZS
-MVJ8UsdTE1NfU6pT9lRCVI9U21UoVXVVwlYPVlxWqVb3V0RXklfgWC9YfVjLWRpZaVm4WgdaVlqmWvVb
-RVuVW+VcNVyGXNZdJ114XcleGl5sXr1fD19hX7NgBWBXYKpg/GFPYaJh9WJJYpxi8GNDY5dj62RAZJRk
-6WU9ZZJl52Y9ZpJm6Gc9Z5Nn6Wg/aJZo7GlDaZpp8WpIap9q92tPa6dr/2xXbK9tCG1gbbluEm5rbsRv
-Hm94b9FwK3CGcOBxOnGVcfByS3KmcwFzXXO4dBR0cHTMdSh1hXXhdj52m3b4d1Z3s3gReG54zHkqeYl5
-53pGeqV7BHtje8J8IXyBfOF9QX2hfgF+Yn7CfyN/hH/lgEeAqIEKgWuBzYIwgpKC9INXg7qEHYSAhOOF
-R4Wrhg6GcobXhzuHn4gEiGmIzokziZmJ/opkisqLMIuWi/yMY4zKjTGNmI3/jmaOzo82j56QBpBukNaR
-P5GokhGSepLjk02TtpQglIqU9JVflcmWNJaflwqXdZfgmEyYuJkkmZCZ/JpomtWbQpuvnByciZz3nWSd
-0p5Anq6fHZ+Ln/qgaaDYoUehtqImopajBqN2o+akVqTHpTilqaYapoum/adup+CoUqjEqTepqaocqo+r
-Aqt1q+msXKzQrUStuK4trqGvFq+LsACwdbDqsWCx1rJLssKzOLOutCW0nLUTtYq2AbZ5tvC3aLfguFm4
-0blKucK6O7q1uy67p7whvJu9Fb2Pvgq+hL7/v3q/9cBwwOzBZ8Hjwl/C28NYw9TEUcTOxUvFyMZGxsPH
-Qce/yD3IvMk6ybnKOMq3yzbLtsw1zLXNNc21zjbOts83z7jQOdC60TzRvtI/0sHTRNPG1EnUy9VO1dHW
-VdbY11zX4Nhk2OjZbNnx2nba+9uA3AXcit0Q3ZbeHN6i3ynfr+A24L3hROHM4lPi2+Nj4+vkc+T85YTm
-DeaW5x/nqegy6LzpRunQ6lvq5etw6/vshu0R7ZzuKO6070DvzPBY8OXxcvH/8ozzGfOn9DT0wvVQ9d72
-bfb794r4Gfio+Tj5x/pX+uf7d/wH/Jj9Kf26/kv+3P9t//+ADtIlJkhJXU5TTXV0YWJsZURhdGGjSEoq
-Vk5TRGF0YdIlJkxNXE5TQ29sb3JTcGFjZaJOKlxOU0NvbG9yU3BhY2XSJSZQUVdOU0NvbG9yolAq0iUm
-U1RXTlNJbWFnZaJTKl8QD05TS2V5ZWRBcmNoaXZlctFXWFRyb290gAEACAARABoAIwAtADIANwBMAFIA
-XQBkAGsAeAB/AIcAiQCLAJAAkgCUAJ0AogCtAK8AsQCzALgAuwC9AL8AwQDDAMgA3wDhAOMI+Qj+CQkJ
-EgklCSkJNAk9CUIJSglNCVIJYQllCXAJeAmFCZIJpwmsCbAJsgm0CbYJvwnECcoJ0gnUCdYJ2AnaCd8J
-5xtTG1UbWhtoG2wbcxt4G4UbiBuVG5obohulG6obshu1G8cbyhvPAAAAAAAAAgEAAAAAAAAAWQAAAAAA
-AAAAAAAAAAAAG9E
-</mutableData>
-        </image>
+        <image name="profileImage" width="512" height="512"/>
+        <image name="stopEditing" width="14" height="14"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="87C-ki-D5c"/>
         <segue reference="X2u-tB-KLb"/>
     </inferredMetricsTieBreakers>
 </document>
