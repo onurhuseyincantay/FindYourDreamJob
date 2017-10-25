@@ -7,3 +7,15 @@
 //
 
 import Foundation
+
+class CompanyUser: User {
+    private var _workArea : String!
+    var workArea : String{
+        return _workArea
+    }
+
+    init(workArea:String,companyNameorNickname: String, email: String, password: String) {
+        super.init(companyNameorNickname: companyNameorNickname, email: email, password: password)
+        _workArea = workArea
+    }
+}

@@ -12,9 +12,10 @@ class RoundedImage: UIImageView {
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        layer.cornerRadius = 60
-        self.contentMode = .scaleAspectFit
-        self.layer.masksToBounds = true
+        self.layer.cornerRadius = self.frame.height / 2.0
+        self.clipsToBounds = true
+        self.layer.borderColor = UIColor.white.cgColor
+        self.layer.borderWidth = 1
     }
 
 }

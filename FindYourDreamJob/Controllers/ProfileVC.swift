@@ -10,14 +10,14 @@ import UIKit
 
 class ProfileVC: UIViewController,UITabBarDelegate{
 
+    @IBOutlet weak var editButton: CustomButton!
     @IBOutlet weak var completeButton: CustomButton!
-    @IBOutlet weak var stopEditing: UIButton!
+
     @IBOutlet weak var tabBar: UITabBar!
      override func viewDidLoad() {
         super.viewDidLoad()
         tabBar.delegate = self
         tabBar.selectedItem = tabBar.items?[1]
-        stopEditing.setTitle("Stop Editing", for: .normal)
     }
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         if item.tag == 0 {
@@ -26,16 +26,14 @@ class ProfileVC: UIViewController,UITabBarDelegate{
     }
     
 
-    @IBAction func stopEditingpressed(_ sender: Any) {
-        stopEditing.isEnabled = false
-        stopEditing.isHidden = true
-    }
-    @IBAction func editPressed(_ sender: Any) {
-        stopEditing.isEnabled = true
-        stopEditing.isHidden = false
+    @IBAction func editPressed(_ sender: UIButton) {
+        sender.setTitle("Stop Editing", for: .normal)
         completeButton.isHidden = false
         completeButton.isEnabled = true
     }
-    @IBAction func completePressed(_ sender: Any) {
+    @IBAction func completePressed(_ sender: UIButton) {
+        sender.isHidden = true
+        sender.isEnabled = false
+        editButton.setTitle("Edit", for: .normal)
     }
 }

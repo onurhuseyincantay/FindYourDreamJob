@@ -31,11 +31,11 @@ class LoginVC: UIViewController ,UITextFieldDelegate{
         if sender.isOn{
             workArea.isHidden = false
             workArea.isEnabled = true
-            companyNameText.placeholder = "Company Name"
+            companyNameText.attributedPlaceholder = NSAttributedString(string: "Company Name", attributes: [NSAttributedStringKey.foregroundColor: UIColor.darkGray])
         }else{
             workArea.isHidden = true
             workArea.isEnabled = false
-            companyNameText.placeholder = "Username"
+            companyNameText.attributedPlaceholder = NSAttributedString(string: "Username", attributes: [NSAttributedStringKey.foregroundColor: UIColor.darkGray])
         }
     }
     
