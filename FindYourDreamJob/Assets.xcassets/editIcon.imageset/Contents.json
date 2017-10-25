@@ -2,15 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "editIcon.png",
+      "filename" : "icons8-Edit Filled_50.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "icons8-Edit Filled_100.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "icons8-Edit Filled_150.png",
       "scale" : "3x"
     }
   ],
