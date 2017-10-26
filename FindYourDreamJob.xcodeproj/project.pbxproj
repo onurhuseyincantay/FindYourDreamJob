@@ -12,6 +12,7 @@
 		611CFE231F9E4EAF007BD0FC /* asCompanyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611CFE221F9E4EAF007BD0FC /* asCompanyVC.swift */; };
 		611CFE251F9E4EC1007BD0FC /* asUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611CFE241F9E4EC1007BD0FC /* asUserVC.swift */; };
 		611CFE271F9E5EA8007BD0FC /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611CFE261F9E5EA8007BD0FC /* CustomView.swift */; };
+		613C987C1FA1F7CD001EE18F /* ProfileVCTextFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613C987B1FA1F7CD001EE18F /* ProfileVCTextFields.swift */; };
 		6155B6901F9F3443007AAFDD /* postingJobsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6155B68F1F9F3443007AAFDD /* postingJobsVC.swift */; };
 		6155B6921F9F3461007AAFDD /* applymentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6155B6911F9F3461007AAFDD /* applymentsVC.swift */; };
 		6155B6941F9F4C05007AAFDD /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6155B6931F9F4C05007AAFDD /* GradientView.swift */; };
@@ -38,6 +39,7 @@
 		611CFE221F9E4EAF007BD0FC /* asCompanyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = asCompanyVC.swift; sourceTree = "<group>"; };
 		611CFE241F9E4EC1007BD0FC /* asUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = asUserVC.swift; sourceTree = "<group>"; };
 		611CFE261F9E5EA8007BD0FC /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
+		613C987B1FA1F7CD001EE18F /* ProfileVCTextFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVCTextFields.swift; sourceTree = "<group>"; };
 		6155B68F1F9F3443007AAFDD /* postingJobsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = postingJobsVC.swift; sourceTree = "<group>"; };
 		6155B6911F9F3461007AAFDD /* applymentsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = applymentsVC.swift; sourceTree = "<group>"; };
 		6155B6931F9F4C05007AAFDD /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				6155B6931F9F4C05007AAFDD /* GradientView.swift */,
 				6155B6951F9F4D9B007AAFDD /* RoundedImage.swift */,
 				6155B6971F9F52D0007AAFDD /* CustomButton.swift */,
+				613C987B1FA1F7CD001EE18F /* ProfileVCTextFields.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 				61CFE4241F9E1EC500B98CFE /* RoundedButton.swift in Sources */,
 				61834BFD1F9F83DE006B9A80 /* User.swift in Sources */,
 				6155B6941F9F4C05007AAFDD /* GradientView.swift in Sources */,
+				613C987C1FA1F7CD001EE18F /* ProfileVCTextFields.swift in Sources */,
 				6155B6901F9F3443007AAFDD /* postingJobsVC.swift in Sources */,
 				61CFE40D1F9E1C4300B98CFE /* AppDelegate.swift in Sources */,
 				61CFE4261F9E212100B98CFE /* Extensions.swift in Sources */,

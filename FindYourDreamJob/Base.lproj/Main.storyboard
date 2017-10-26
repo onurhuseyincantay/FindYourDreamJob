@@ -14,6 +14,7 @@
         </array>
         <array key="AvenirNext.ttc">
             <string>AvenirNext-Medium</string>
+            <string>AvenirNext-Regular</string>
         </array>
     </customFonts>
     <scenes>
@@ -125,11 +126,11 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="zKv-5y-uQM">
                                         <rect key="frame" x="0.0" y="377" width="257" height="50"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RqP-YE-cov">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RqP-YE-cov" customClass="RoundedButton" customModule="FindYourDreamJob" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="102" height="50"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <state key="normal" title="Forgot Password">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="forgotPassword:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kRh-K2-VPq"/>
@@ -303,6 +304,9 @@
                             <tabBar contentMode="scaleToFill" barStyle="black" itemPositioning="centered" translatesAutoresizingMaskIntoConstraints="NO" id="q93-IO-mfy">
                                 <rect key="frame" x="0.0" y="618" width="375" height="49"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="2V4-i2-G5I"/>
+                                </constraints>
                                 <items>
                                     <tabBarItem title="Home" image="Home" landscapeImage="Home" largeContentSizeImage="Home" selectedImage="Home" id="ubS-lB-WbB"/>
                                     <tabBarItem tag="1" title="Posting Jobs" image="Posting Job" landscapeImage="Posting Job" largeContentSizeImage="Posting Job" id="GVN-cT-rWc"/>
@@ -540,24 +544,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eK3-Mo-QM7">
-                                <rect key="frame" x="0.0" y="20" width="375" height="50"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="pJV-4D-evU">
-                                        <rect key="frame" x="93" y="8" width="189" height="34"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="34" id="18Z-mK-hne"/>
-                                            <constraint firstAttribute="width" constant="189" id="byh-fT-BBc"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" red="0.0039215686269999999" green="0.3411764706" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="6DM-b5-2ZA"/>
-                                    <constraint firstItem="pJV-4D-evU" firstAttribute="centerX" secondItem="eK3-Mo-QM7" secondAttribute="centerX" id="Vmq-5Z-rtb"/>
-                                    <constraint firstItem="pJV-4D-evU" firstAttribute="centerY" secondItem="eK3-Mo-QM7" secondAttribute="centerY" id="pEf-59-Tbf"/>
-                                </constraints>
-                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="JobPostBG" translatesAutoresizingMaskIntoConstraints="NO" id="tfB-Af-tkQ">
+                                <rect key="frame" x="0.0" y="-50" width="375" height="667"/>
+                            </imageView>
                             <tabBar contentMode="scaleToFill" barStyle="black" itemPositioning="fill" translatesAutoresizingMaskIntoConstraints="NO" id="Aw1-nY-GhH">
                                 <rect key="frame" x="0.0" y="617" width="375" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -569,22 +558,66 @@
                                     <tabBarItem title="Posting Jobs" image="Posting Job" landscapeImage="Posting Job" largeContentSizeImage="Posting Job" id="blL-2n-LqM"/>
                                 </items>
                             </tabBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Posting Jobs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DSA-Vc-L7b">
-                                <rect key="frame" x="129" y="323" width="168" height="21"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9VH-FW-jHB" customClass="CustomButton" customModule="FindYourDreamJob" customModuleProvider="target">
+                                <rect key="frame" x="8" y="573" width="359" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <state key="normal" title="POST">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="YFS-QL-T3B">
+                                <rect key="frame" x="8" y="389" width="359" height="176"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="V80-Gh-Bkd">
+                                <rect key="frame" x="8" y="231" width="136.5" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Caption" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xxa-a5-ybt" customClass="ProfileVCTextFields" customModule="FindYourDreamJob" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="136.5" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n6h-2x-jkv" customClass="ProfileVCTextFields" customModule="FindYourDreamJob" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="40" width="136.5" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Employment Type" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q1d-rL-7ZN" customClass="ProfileVCTextFields" customModule="FindYourDreamJob" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="80" width="136.5" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Country" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jFk-Wh-71N" customClass="ProfileVCTextFields" customModule="FindYourDreamJob" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="120" width="136.5" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ProfileImage" translatesAutoresizingMaskIntoConstraints="NO" id="E57-Za-gim" customClass="RoundedImage" customModule="FindYourDreamJob" customModuleProvider="target">
+                                <rect key="frame" x="295" y="46" width="128" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="eK3-Mo-QM7" firstAttribute="top" secondItem="99h-p6-mXw" secondAttribute="top" id="7dd-b9-ZgI"/>
+                            <constraint firstItem="tfB-Af-tkQ" firstAttribute="leading" secondItem="99h-p6-mXw" secondAttribute="leading" id="Dv1-Ho-8rj"/>
+                            <constraint firstItem="Aw1-nY-GhH" firstAttribute="top" secondItem="tfB-Af-tkQ" secondAttribute="bottom" id="QQK-bX-vMQ"/>
+                            <constraint firstItem="tfB-Af-tkQ" firstAttribute="top" secondItem="pZo-dK-hQg" secondAttribute="top" constant="-50" id="SiT-IT-LK2"/>
                             <constraint firstItem="Aw1-nY-GhH" firstAttribute="leading" secondItem="99h-p6-mXw" secondAttribute="leading" id="WU7-go-y0W"/>
-                            <constraint firstItem="eK3-Mo-QM7" firstAttribute="leading" secondItem="99h-p6-mXw" secondAttribute="leading" id="pwg-cr-1Zv"/>
+                            <constraint firstItem="99h-p6-mXw" firstAttribute="trailing" secondItem="tfB-Af-tkQ" secondAttribute="trailing" id="aiL-uz-BKw"/>
                             <constraint firstAttribute="trailing" secondItem="Aw1-nY-GhH" secondAttribute="trailing" id="r8d-Zh-S33"/>
                             <constraint firstItem="99h-p6-mXw" firstAttribute="bottom" secondItem="Aw1-nY-GhH" secondAttribute="bottom" id="wZq-DI-Zk5"/>
-                            <constraint firstAttribute="trailing" secondItem="eK3-Mo-QM7" secondAttribute="trailing" id="ztW-ho-5jb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="99h-p6-mXw"/>
                     </view>
@@ -633,22 +666,33 @@
                                     <constraint firstItem="B7L-wA-MaM" firstAttribute="centerX" secondItem="MYe-HS-5SW" secondAttribute="centerX" id="pAr-9r-XOS"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Applyments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBJ-GI-sKY">
-                                <rect key="frame" x="103" y="323" width="168" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9DL-gL-KLO">
+                                <rect key="frame" x="0.0" y="70" width="375" height="547"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="applymentsVCCell" id="FJ4-BL-lnD">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FJ4-BL-lnD" id="g0X-8X-6xv">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="PaW-o1-zen" firstAttribute="leading" secondItem="JOC-fF-pnb" secondAttribute="leading" id="9MZ-rr-U36"/>
                             <constraint firstItem="y6r-HL-qek" firstAttribute="trailing" secondItem="MYe-HS-5SW" secondAttribute="trailing" id="OoT-eX-NO9"/>
                             <constraint firstItem="MYe-HS-5SW" firstAttribute="top" secondItem="y6r-HL-qek" secondAttribute="top" id="RUD-KV-h3q"/>
+                            <constraint firstItem="9DL-gL-KLO" firstAttribute="top" secondItem="MYe-HS-5SW" secondAttribute="bottom" id="TRg-pQ-BJW"/>
+                            <constraint firstItem="PaW-o1-zen" firstAttribute="top" secondItem="9DL-gL-KLO" secondAttribute="bottom" id="asU-Zu-fc7"/>
                             <constraint firstItem="y6r-HL-qek" firstAttribute="trailing" secondItem="PaW-o1-zen" secondAttribute="trailing" id="fO0-iu-uyG"/>
                             <constraint firstItem="MYe-HS-5SW" firstAttribute="leading" secondItem="JOC-fF-pnb" secondAttribute="leading" id="ktO-F0-IJd"/>
                             <constraint firstItem="y6r-HL-qek" firstAttribute="bottom" secondItem="PaW-o1-zen" secondAttribute="bottom" id="kuF-ff-WxP"/>
+                            <constraint firstItem="9DL-gL-KLO" firstAttribute="leading" secondItem="y6r-HL-qek" secondAttribute="leading" id="pG8-Co-nig"/>
+                            <constraint firstItem="y6r-HL-qek" firstAttribute="trailing" secondItem="9DL-gL-KLO" secondAttribute="trailing" id="sgN-LB-vgF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="y6r-HL-qek"/>
                     </view>
@@ -668,28 +712,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tabBar contentMode="scaleToFill" barStyle="black" itemPositioning="fill" translatesAutoresizingMaskIntoConstraints="NO" id="drt-DT-jaM">
-                                <rect key="frame" x="0.0" y="618" width="375" height="49"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="49" id="ZUG-Xq-0St"/>
-                                </constraints>
-                                <items>
-                                    <tabBarItem title="Home" image="Home" landscapeImage="Home" largeContentSizeImage="Home" selectedImage="Home" id="RMh-ay-we0">
-                                        <color key="badgeColor" red="0.0039215686269999999" green="0.3411764706" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                    </tabBarItem>
-                                    <tabBarItem tag="1" title="Profile" image="Profile" landscapeImage="Profile" largeContentSizeImage="Profile" selectedImage="Profile" id="7aa-sI-GVD"/>
-                                </items>
-                            </tabBar>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6vZ-CU-SPf">
+                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6vZ-CU-SPf">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="350"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" alpha="0.44999998807907104" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ProfileBG" translatesAutoresizingMaskIntoConstraints="NO" id="BM0-q9-iNd">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="350"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="350" id="6eS-JH-UKG">
-                                                <variation key="heightClass=compact-widthClass=compact" constant="150"/>
-                                            </constraint>
+                                            <constraint firstAttribute="height" constant="350" id="Ll4-vi-xcQ"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="Ll4-vi-xcQ"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="Ll4-vi-xcQ"/>
+                                            </mask>
+                                        </variation>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ProfileImage" translatesAutoresizingMaskIntoConstraints="NO" id="7h2-x9-duc" customClass="RoundedImage" customModule="FindYourDreamJob" customModuleProvider="target">
                                         <rect key="frame" x="123.5" y="96" width="128" height="128"/>
@@ -707,6 +747,9 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9j1-WZ-hFo" customClass="CustomButton" customModule="FindYourDreamJob" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="37"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="37" id="YdO-8g-aeU"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
                                                 <state key="normal" title="Edit Profile">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -731,49 +774,191 @@
                                         </constraints>
                                         <viewLayoutGuide key="safeArea" id="r03-2N-L3N"/>
                                     </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="DrO-iT-Kld">
+                                        <rect key="frame" x="8" y="183.5" width="651" height="134.5"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q1v-ho-XfE" customClass="ProfileVCTextFields" customModule="FindYourDreamJob" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="651" height="41.5"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-Mail" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ep9-Na-LdG" customClass="ProfileVCTextFields" customModule="FindYourDreamJob" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="46.5" width="651" height="41.5"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="About" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ihw-8s-Hvr" customClass="ProfileVCTextFields" customModule="FindYourDreamJob" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="93" width="651" height="41.5"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="7h2-x9-duc" firstAttribute="centerY" secondItem="6vZ-CU-SPf" secondAttribute="centerY" constant="-15" id="4vy-s7-CRv"/>
+                                    <constraint firstItem="RDo-hs-m7d" firstAttribute="top" secondItem="7h2-x9-duc" secondAttribute="bottom" constant="34" id="0sp-Qm-Pvz"/>
+                                    <constraint firstAttribute="trailing" secondItem="RDo-hs-m7d" secondAttribute="trailing" id="3Fx-6J-SV9"/>
+                                    <constraint firstItem="7h2-x9-duc" firstAttribute="centerY" secondItem="6vZ-CU-SPf" secondAttribute="centerY" constant="-15" id="4vy-s7-CRv">
+                                        <variation key="heightClass=compact-widthClass=compact" constant="-125"/>
+                                    </constraint>
                                     <constraint firstAttribute="trailing" secondItem="RDo-hs-m7d" secondAttribute="trailing" id="6e8-ur-Xmn"/>
                                     <constraint firstAttribute="bottom" secondItem="BM0-q9-iNd" secondAttribute="bottom" id="ASn-hX-vTT"/>
                                     <constraint firstItem="RDo-hs-m7d" firstAttribute="leading" secondItem="6vZ-CU-SPf" secondAttribute="leading" id="AkK-Af-vLd"/>
-                                    <constraint firstAttribute="height" constant="350" id="Eup-xj-i6C">
-                                        <variation key="heightClass=compact-widthClass=compact" constant="150"/>
-                                    </constraint>
                                     <constraint firstAttribute="trailing" secondItem="BM0-q9-iNd" secondAttribute="trailing" id="GjM-PL-naQ"/>
+                                    <constraint firstItem="RDo-hs-m7d" firstAttribute="top" secondItem="7h2-x9-duc" secondAttribute="bottom" constant="71" id="LGx-z7-B6X"/>
                                     <constraint firstItem="7h2-x9-duc" firstAttribute="centerX" secondItem="6vZ-CU-SPf" secondAttribute="centerX" id="Tbd-8l-1ZP"/>
                                     <constraint firstItem="BM0-q9-iNd" firstAttribute="top" secondItem="6vZ-CU-SPf" secondAttribute="top" id="Xtc-te-QXr"/>
+                                    <constraint firstAttribute="trailing" secondItem="DrO-iT-Kld" secondAttribute="trailing" constant="8" id="hbU-my-hXp"/>
+                                    <constraint firstAttribute="bottom" secondItem="DrO-iT-Kld" secondAttribute="bottom" constant="8" id="hna-ed-5dE"/>
+                                    <constraint firstItem="DrO-iT-Kld" firstAttribute="leading" secondItem="6vZ-CU-SPf" secondAttribute="leading" constant="8" id="oKm-zc-Uct"/>
+                                    <constraint firstItem="DrO-iT-Kld" firstAttribute="top" secondItem="RDo-hs-m7d" secondAttribute="bottom" constant="8" id="ovf-6J-Yab"/>
                                     <constraint firstItem="BM0-q9-iNd" firstAttribute="leading" secondItem="6vZ-CU-SPf" secondAttribute="leading" id="pJG-yx-dYT"/>
+                                    <constraint firstAttribute="bottom" secondItem="BM0-q9-iNd" secondAttribute="bottom" id="qas-Xm-UVw"/>
+                                    <constraint firstAttribute="bottom" secondItem="DrO-iT-Kld" secondAttribute="bottom" constant="57" id="qmF-1r-NSw"/>
+                                    <constraint firstItem="RDo-hs-m7d" firstAttribute="leading" secondItem="6vZ-CU-SPf" secondAttribute="leading" id="szl-cG-vjm"/>
                                     <constraint firstAttribute="bottom" secondItem="RDo-hs-m7d" secondAttribute="bottom" constant="8" id="umc-L5-yiA"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="qas-Xm-UVw"/>
+                                        <exclude reference="0sp-Qm-Pvz"/>
+                                        <exclude reference="3Fx-6J-SV9"/>
+                                        <exclude reference="LGx-z7-B6X"/>
+                                        <exclude reference="szl-cG-vjm"/>
+                                        <exclude reference="hbU-my-hXp"/>
+                                        <exclude reference="hna-ed-5dE"/>
+                                        <exclude reference="oKm-zc-Uct"/>
+                                        <exclude reference="ovf-6J-Yab"/>
+                                        <exclude reference="qmF-1r-NSw"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="qas-Xm-UVw"/>
+                                        <include reference="0sp-Qm-Pvz"/>
+                                        <include reference="3Fx-6J-SV9"/>
+                                        <exclude reference="6e8-ur-Xmn"/>
+                                        <exclude reference="AkK-Af-vLd"/>
+                                        <include reference="szl-cG-vjm"/>
+                                        <exclude reference="umc-L5-yiA"/>
+                                        <include reference="hbU-my-hXp"/>
+                                        <exclude reference="hna-ed-5dE"/>
+                                        <include reference="oKm-zc-Uct"/>
+                                        <include reference="ovf-6J-Yab"/>
+                                        <include reference="qmF-1r-NSw"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="subviews">
+                                        <exclude reference="DrO-iT-Kld"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <include reference="LGx-z7-B6X"/>
+                                    </mask>
+                                </variation>
                             </view>
+                            <tabBar opaque="NO" contentMode="scaleToFill" barStyle="black" itemPositioning="fill" translatesAutoresizingMaskIntoConstraints="NO" id="cKV-F5-RXX">
+                                <rect key="frame" x="0.0" y="618" width="375" height="49"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="Xe9-dD-Smd"/>
+                                </constraints>
+                                <items>
+                                    <tabBarItem title="Home" image="Home" landscapeImage="Home" largeContentSizeImage="Home" selectedImage="Home" id="Rlf-4I-bDs">
+                                        <color key="badgeColor" red="0.0039215686269999999" green="0.3411764706" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </tabBarItem>
+                                    <tabBarItem tag="1" title="Profile" image="Profile" landscapeImage="Profile" largeContentSizeImage="Profile" selectedImage="Profile" id="Zz3-Go-yr9"/>
+                                </items>
+                            </tabBar>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="F4c-z2-aZm">
+                                <rect key="frame" x="8" y="358" width="359" height="252"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CUZ-Un-ICZ" customClass="ProfileVCTextFields" customModule="FindYourDreamJob" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="359" height="80.5"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-Mail" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Gd-Za-14U" customClass="ProfileVCTextFields" customModule="FindYourDreamJob" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="85.5" width="359" height="81"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="About" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sWn-Vr-v3z" customClass="ProfileVCTextFields" customModule="FindYourDreamJob" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="171.5" width="359" height="80.5"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="drt-DT-jaM" secondAttribute="trailing" id="5ab-mV-PfQ"/>
+                            <constraint firstAttribute="bottom" secondItem="6vZ-CU-SPf" secondAttribute="bottom" id="06q-3Y-5YZ"/>
+                            <constraint firstAttribute="bottom" secondItem="6vZ-CU-SPf" secondAttribute="bottom" id="5WS-ya-CNa"/>
+                            <constraint firstItem="cKV-F5-RXX" firstAttribute="trailing" secondItem="5dj-Hj-WuG" secondAttribute="trailing" id="D8c-id-QZj"/>
+                            <constraint firstItem="cKV-F5-RXX" firstAttribute="top" secondItem="F4c-z2-aZm" secondAttribute="bottom" constant="8" id="Gpa-j2-BiA"/>
+                            <constraint firstItem="cKV-F5-RXX" firstAttribute="leading" secondItem="5dj-Hj-WuG" secondAttribute="leading" id="Iac-Fj-yl5"/>
+                            <constraint firstItem="F4c-z2-aZm" firstAttribute="top" secondItem="6vZ-CU-SPf" secondAttribute="bottom" constant="8" id="Iw5-9z-IgU"/>
                             <constraint firstItem="6vZ-CU-SPf" firstAttribute="leading" secondItem="5dj-Hj-WuG" secondAttribute="leading" id="SYj-aL-YVJ"/>
                             <constraint firstItem="5dj-Hj-WuG" firstAttribute="trailing" secondItem="6vZ-CU-SPf" secondAttribute="trailing" id="UrE-i4-UZc"/>
-                            <constraint firstItem="drt-DT-jaM" firstAttribute="leading" secondItem="5dj-Hj-WuG" secondAttribute="leading" id="dGo-CH-Mgo"/>
+                            <constraint firstItem="F4c-z2-aZm" firstAttribute="leading" secondItem="5dj-Hj-WuG" secondAttribute="leading" constant="8" id="Xza-U5-rNw"/>
+                            <constraint firstItem="5dj-Hj-WuG" firstAttribute="trailing" secondItem="F4c-z2-aZm" secondAttribute="trailing" constant="8" id="ZNA-1w-r0E"/>
                             <constraint firstItem="6vZ-CU-SPf" firstAttribute="top" secondItem="OVz-TV-2ll" secondAttribute="top" id="rXz-NV-a4c"/>
-                            <constraint firstItem="5dj-Hj-WuG" firstAttribute="bottom" secondItem="drt-DT-jaM" secondAttribute="bottom" id="xSd-DK-ed6"/>
+                            <constraint firstItem="5dj-Hj-WuG" firstAttribute="bottom" secondItem="cKV-F5-RXX" secondAttribute="bottom" id="rjE-IZ-L0y"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5dj-Hj-WuG"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="F4c-z2-aZm"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="ZNA-1w-r0E"/>
+                                <exclude reference="06q-3Y-5YZ"/>
+                                <exclude reference="5WS-ya-CNa"/>
+                                <exclude reference="Gpa-j2-BiA"/>
+                                <exclude reference="Iw5-9z-IgU"/>
+                                <exclude reference="Xza-U5-rNw"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="06q-3Y-5YZ"/>
+                                <exclude reference="5WS-ya-CNa"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="F4c-z2-aZm"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="ZNA-1w-r0E"/>
+                                <include reference="Gpa-j2-BiA"/>
+                                <include reference="Iw5-9z-IgU"/>
+                                <include reference="Xza-U5-rNw"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="completeButton" destination="RCK-Dx-6NK" id="tD1-cf-gQE"/>
                         <outlet property="editButton" destination="9j1-WZ-hFo" id="qX6-OQ-eJO"/>
-                        <outlet property="tabBar" destination="drt-DT-jaM" id="Gww-Ve-sQ2"/>
+                        <outlet property="tabBar" destination="cKV-F5-RXX" id="zZo-Pv-9Cg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4sW-Uo-wkC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1564" y="207.34632683658174"/>
+            <point key="canvasLocation" x="1563.8680659670167" y="207.19999999999999"/>
         </scene>
     </scenes>
     <resources>
         <image name="CompanyProfile" width="20" height="18"/>
         <image name="Home" width="20" height="17"/>
+        <image name="JobPostBG" width="375" height="667"/>
         <image name="LoginBG" width="5760" height="3840"/>
         <image name="Logo" width="175" height="29"/>
         <image name="Logout" width="18" height="18"/>

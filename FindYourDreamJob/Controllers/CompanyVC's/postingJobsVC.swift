@@ -8,7 +8,7 @@
 
 import UIKit
 
-class postingJobsVC: UIViewController,UITabBarDelegate {
+class postingJobsVC: UIViewController,UITabBarDelegate{
 
     @IBOutlet weak var tabBar: UITabBar!
     override func viewDidLoad() {
@@ -16,6 +16,7 @@ class postingJobsVC: UIViewController,UITabBarDelegate {
       tabBar.delegate = self
       tabBar.selectedItem = tabBar.items?[1]
     }
+    
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         if item.tag==0{
             dismiss(animated: true, completion: nil)
