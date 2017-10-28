@@ -24,16 +24,31 @@ class ProfileVC: UIViewController,UITabBarDelegate{
             dismiss(animated: true, completion: nil)
         }
     }
-    
 
     @IBAction func editPressed(_ sender: UIButton) {
-        sender.setTitle("Stop Editing", for: .normal)
-        completeButton.isHidden = false
-        completeButton.isEnabled = true
+      self.buttonUIhandling(sender)
     }
     @IBAction func completePressed(_ sender: UIButton) {
-        sender.isHidden = true
-        sender.isEnabled = false
-        editButton.setTitle("Edit", for: .normal)
+        self.buttonUIhandling(sender)
+    }
+    func buttonUIhandling(_ sender: UIButton)  {
+        if sender.tag == 1{
+            completeButton.isHidden = true
+            completeButton.isEnabled = false
+            sender.tag = 0
+            sender.setTitle("Edit", for: .normal)
+        }else
+        {
+            sender.setTitle("Stop Editing", for: .normal)
+            sender.tag = 1
+            completeButton.isHidden = false
+            completeButton.isEnabled = true
+        }
+        if sender.titleLabel?.text == "Complete"{
+            sender.isHidden = true
+            sender.isEnabled = false
+            self.editButton.tag = 0
+            editButton.setTitle("Edit", for: .normal)
+        }
     }
 }

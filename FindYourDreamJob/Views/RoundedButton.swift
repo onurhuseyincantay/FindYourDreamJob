@@ -15,7 +15,6 @@ class RoundedButton: UIButton {
         if self.restorationIdentifier != "linkedInBtn"{
             layer.cornerRadius = 15
             clipsToBounds = true
-            self.tintColor = UIColor.black
             self.backgroundColor = BLUE
             self.titleLabel?.textColor = UIColor.white
         }else{

@@ -15,9 +15,9 @@ class CustomButton: UIButton {
         self.layer.cornerRadius = 25
         self.layer.borderWidth = 1.5
         self.clipsToBounds = true
-        self.layer.borderColor = UIColor(red: 80/255, green: 80/255, blue: 80/255, alpha: 1).cgColor
+        self.layer.borderColor = UIColor.white.cgColor
         self.backgroundColor = UIColor.clear
-        self.titleLabel?.textColor = UIColor(red: 80/255, green: 80/255, blue: 80/255, alpha: 1)
+        self.titleLabel?.textColor = UIColor.white
         
      }
    

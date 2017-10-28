@@ -10,15 +10,15 @@ import UIKit
 
 class LoginVC: UIViewController ,UITextFieldDelegate{
     @IBOutlet weak var companyRegistiration: UISwitch!
-    
     @IBOutlet weak var workArea: CustomTextField!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var companyNameText: CustomTextField!
     @IBOutlet weak var emailText: CustomTextField!
     @IBOutlet weak var passwordText: CustomTextField!
     @IBOutlet weak var loginRegisterBtn: RoundedButton!
-    @IBOutlet weak var forgotPassBtn: UIButton!
     @IBOutlet weak var companyRegStackView: UIStackView!
+    
+    
     
        override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,33 +49,21 @@ class LoginVC: UIViewController ,UITextFieldDelegate{
         }
         
     }
-    var user =  User(companyNameorNickname: "a", email: "a", password: "a")
-    var companyUser = CompanyUser(workArea: "a", companyNameorNickname: "a", email: "a", password: "a")
-    
- //burası da öyle
-    func loginPressed() {
-    
-            performSegue(withIdentifier: "asCompany", sender: nil)
-            
-        
-           // performSegue(withIdentifier: "asUser", sender: nil)
-        
-   }
-    func registerPressed() {
-        
-    }
-   
-    
-    @IBAction func forgotPassword(_ sender: UIButton) {
-        
-        
-    }
- 
-
     @IBAction func signInWithLinkedIn(_ sender: RoundedButton) {
         
     }
     
-
+    
+    func registerPressed() {
+        
+    }
+    func loginPressed() {
+        
+       performSegue(withIdentifier: "asCompany", sender: nil)
+        
+        
+         //performSegue(withIdentifier: "asUser", sender: nil)
+        
+    }
 }
 

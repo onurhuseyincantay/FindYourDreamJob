@@ -22,7 +22,15 @@ class postingJobsVC: UIViewController,UITabBarDelegate{
             dismiss(animated: true, completion: nil)
         }
     }
-    
+    //-----------
+    //Landscape modu kapattım
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
+        return UIInterfaceOrientationMask.portrait
+    }
+    override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation{
+        return UIInterfaceOrientation.portrait
+    }
+    //-----------
 
 
 }
