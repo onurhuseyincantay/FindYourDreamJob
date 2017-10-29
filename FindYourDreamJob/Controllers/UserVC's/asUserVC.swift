@@ -13,9 +13,7 @@ class asUserVC: UIViewController,UITabBarDelegate,UITableViewDataSource,UITableV
     @IBOutlet weak var tabBar: UITabBar!
     
     @IBOutlet weak var tableView: UITableView!
-    @IBAction func logoutButton(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
-    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -23,7 +21,10 @@ class asUserVC: UIViewController,UITabBarDelegate,UITableViewDataSource,UITableV
         tabBar.delegate = self
         tabBar.selectedItem = tabBar.items?[0]
     }
-    
+    @IBAction func logoutButton(_ sender: UIButton) {
+        CURRENT_USER = nil
+        self.dismiss(animated: true, completion: nil)
+    }
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -45,14 +46,17 @@ class asUserVC: UIViewController,UITabBarDelegate,UITableViewDataSource,UITableV
     }
     
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        performSegue(withIdentifier: "userProfile", sender: tabBar)
-        tabBar.selectedItem = tabBar.items?[0]
+        switch item.tag {
+        case 1:
+            performSegue(withIdentifier: "applyedJobs", sender: nil)
+            tabBar.selectedItem = tabBar.items?[0]
+        case 2:
+            performSegue(withIdentifier: "userProfile", sender: nil)
+            tabBar.selectedItem = tabBar.items?[0]
+        default:break
+        
     }
-   
-    
-   
-    
-    
-   
+    }
 
 }
+

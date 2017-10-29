@@ -10,6 +10,7 @@ import UIKit
 
 class JobCell: UITableViewCell {
 
+    @IBOutlet weak var companyNameLabel: UILabel!
     @IBOutlet weak var jobDescription: UITextView!
     @IBOutlet weak var profileImage: RoundedImage!
     @IBOutlet weak var employmentTypeLabel: UILabel!
@@ -21,17 +22,23 @@ class JobCell: UITableViewCell {
         // Initialization code
     }
     func setParameters(job:Jobs) {
+        if(CURRENT_USER is CompanyUser){
+            if let companyUser = CURRENT_USER as? CompanyUser{
+                self.workAreaLabel.text = companyUser.workArea
+                self.companyNameLabel.isHidden = true
+                if let url = companyUser.profileImageURL{
+                    self.profileImage.loadImages(urlString:url)
+                }
+            }
+            }
+        self.companyNameLabel.text = job.companyName
+        if let url = job.companyImageURL{
+          self.profileImage.loadImages(urlString:url)
+        }
         self.jobTitleLabel.text = job.title
         self.jobDescription.text = job.description
         self.captionLabel.text = job.caption
         self.employmentTypeLabel.text = job.employmentType
-        self.profileImage.loadImages(urlString: (CURRENT_USER?.profileImageURL)!)
-        if(CURRENT_USER is CompanyUser){
-            if let user = CURRENT_USER as? CompanyUser{
-                self.workAreaLabel.text = user.workArea
-        }
     }
-
-
 }
-}
+

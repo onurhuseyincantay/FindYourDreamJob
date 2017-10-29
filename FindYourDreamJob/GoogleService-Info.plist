@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>94274636021-v34i9nknji15vsepj9ue20g0ilo0148j.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.94274636021-v34i9nknji15vsepj9ue20g0ilo0148j</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA3iKY7gBawqc54Pd3GfI---mZr5dIBb4k</string>
+	<key>GCM_SENDER_ID</key>
+	<string>94274636021</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>onurhuseyincantay.FindYourDreamJob</string>
+	<key>PROJECT_ID</key>
+	<string>findyourdreamjob-410a4</string>
+	<key>STORAGE_BUCKET</key>
+	<string>findyourdreamjob-410a4.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:94274636021:ios:2aa9af04e16f7879</string>
+	<key>DATABASE_URL</key>
+	<string>https://findyourdreamjob-410a4.firebaseio.com</string>
+</dict>
+</plist>

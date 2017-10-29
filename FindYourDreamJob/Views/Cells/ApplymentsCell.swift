@@ -10,16 +10,8 @@ import UIKit
 
 class ApplymentsCell: UITableViewCell {
     
-    var job : Jobs?{
-        didSet{
-           employmentTypeLabel.text = job?.employmentType
-            jobTitleLabel.text = job?.title
-            userNameLabel.text = job?.users.companyNameorNickname
-            if let url = job?.users.profileImageURL{
-            profileImage.loadImages(urlString:url)
-            }
-        }
-    }
+
+    @IBOutlet weak var caption: UILabel!
     @IBOutlet weak var employmentTypeLabel: UILabel!
     @IBOutlet weak var jobTitleLabel: UILabel!
     @IBOutlet weak var userNameLabel: UILabel!
@@ -28,7 +20,13 @@ class ApplymentsCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    func setParameters(employmentType:String,jobTitle:String,userName:String,ImageURL:String,captionText:String) {
+        self.employmentTypeLabel.text = employmentType
+        self.jobTitleLabel.text = jobTitle
+        self.userNameLabel.text = userName
+        self.caption.text = captionText
+        self.profileImage.loadImages(urlString: ImageURL)
+    }
    
 
 }

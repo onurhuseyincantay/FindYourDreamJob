@@ -9,7 +9,7 @@
 import Foundation
 
 class Jobs {
-    private var _jobKey : String?
+    private var _CompanyName : String?
     private var _description : String?
     private var _title : String?
     private var _employmentType: String?
@@ -17,6 +17,10 @@ class Jobs {
     private var _jobPlace : String?
     private var _timeStamp :  NSNumber?
     private var _users : User?
+    private var _companyImageURL : String?
+    var companyImageURL : String!{
+        return _companyImageURL
+    }
     var timeStamp : NSNumber!{
         return _timeStamp
     }
@@ -26,8 +30,8 @@ class Jobs {
         }
         return nil
     }
-    var jobKey : String!{
-        return _jobKey
+    var companyName : String!{
+        return _CompanyName
     }
     var caption : String!{
         return _caption
@@ -45,14 +49,15 @@ class Jobs {
     var title :String!{
         return _title
     }
-    init(jobKey:String,description:String,title:String,employmentType : String,caption : String,jobPlace:String,timeStamp : NSNumber) {
-        _jobKey = jobKey
+    init(companyName:String,description:String,title:String,employmentType : String,caption : String,jobPlace:String,timeStamp : NSNumber,imageURl:String) {
+        _CompanyName = companyName
         _description = description
         _title = title
         _employmentType = employmentType
         _caption = caption
         _jobPlace = jobPlace
         _timeStamp = timeStamp
+        _companyImageURL = imageURl
     }
     
 }

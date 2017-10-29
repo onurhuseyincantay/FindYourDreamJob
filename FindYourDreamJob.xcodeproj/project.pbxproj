@@ -26,6 +26,8 @@
 		61988F471F9E80FD007C5035 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61988F461F9E80FD007C5035 /* ProfileVC.swift */; };
 		61988F491F9E890A007C5035 /* JobDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61988F481F9E890A007C5035 /* JobDetailVC.swift */; };
 		619F03231F9F92BD00E2FFCC /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619F03221F9F92BD00E2FFCC /* Database.swift */; };
+		61AFE2391FA60B1800AFCAE7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 61AFE2381FA60B1800AFCAE7 /* GoogleService-Info.plist */; };
+		61AFE23B1FA6182000AFCAE7 /* ApplyedJobsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AFE23A1FA6182000AFCAE7 /* ApplyedJobsVC.swift */; };
 		61CFE40D1F9E1C4300B98CFE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CFE40C1F9E1C4300B98CFE /* AppDelegate.swift */; };
 		61CFE40F1F9E1C4300B98CFE /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CFE40E1F9E1C4300B98CFE /* LoginVC.swift */; };
 		61CFE4121F9E1C4300B98CFE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61CFE4101F9E1C4300B98CFE /* Main.storyboard */; };
@@ -34,6 +36,7 @@
 		61CFE4241F9E1EC500B98CFE /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CFE4231F9E1EC500B98CFE /* RoundedButton.swift */; };
 		61CFE4261F9E212100B98CFE /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CFE4251F9E212100B98CFE /* Extensions.swift */; };
 		61D631BA1FA5E28500C52776 /* ApplymentsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D631B91FA5E28500C52776 /* ApplymentsCell.swift */; };
+		88D217E747EC7C57802E8304 /* Pods_FindYourDreamJob.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F97E27841F95675260531D8 /* Pods_FindYourDreamJob.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +59,8 @@
 		61988F461F9E80FD007C5035 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		61988F481F9E890A007C5035 /* JobDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailVC.swift; sourceTree = "<group>"; };
 		619F03221F9F92BD00E2FFCC /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		61AFE2381FA60B1800AFCAE7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		61AFE23A1FA6182000AFCAE7 /* ApplyedJobsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyedJobsVC.swift; sourceTree = "<group>"; };
 		61CFE4091F9E1C4300B98CFE /* FindYourDreamJob.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindYourDreamJob.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61CFE40C1F9E1C4300B98CFE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		61CFE40E1F9E1C4300B98CFE /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -66,6 +71,9 @@
 		61CFE4231F9E1EC500B98CFE /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		61CFE4251F9E212100B98CFE /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		61D631B91FA5E28500C52776 /* ApplymentsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplymentsCell.swift; sourceTree = "<group>"; };
+		6F97E27841F95675260531D8 /* Pods_FindYourDreamJob.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FindYourDreamJob.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8D35B04255EF94F264EE9BB /* Pods-FindYourDreamJob.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindYourDreamJob.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FindYourDreamJob/Pods-FindYourDreamJob.debug.xcconfig"; sourceTree = "<group>"; };
+		DC819C8E52D8FF3598D5F505 /* Pods-FindYourDreamJob.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindYourDreamJob.release.xcconfig"; path = "Pods/Target Support Files/Pods-FindYourDreamJob/Pods-FindYourDreamJob.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,12 +81,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88D217E747EC7C57802E8304 /* Pods_FindYourDreamJob.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F158C11EB78B3621DC347B9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6F97E27841F95675260531D8 /* Pods_FindYourDreamJob.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5E65F7E66BBB4000A20E6CAD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C8D35B04255EF94F264EE9BB /* Pods-FindYourDreamJob.debug.xcconfig */,
+				DC819C8E52D8FF3598D5F505 /* Pods-FindYourDreamJob.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		6155B68E1F9F3363007AAFDD /* CompanyVC's */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				611CFE241F9E4EC1007BD0FC /* asUserVC.swift */,
+				61AFE23A1FA6182000AFCAE7 /* ApplyedJobsVC.swift */,
 			);
 			path = "UserVC's";
 			sourceTree = "<group>";
@@ -131,6 +158,8 @@
 			children = (
 				61CFE40B1F9E1C4300B98CFE /* FindYourDreamJob */,
 				61CFE40A1F9E1C4300B98CFE /* Products */,
+				5E65F7E66BBB4000A20E6CAD /* Pods */,
+				1F158C11EB78B3621DC347B9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -155,6 +184,7 @@
 				61CFE4101F9E1C4300B98CFE /* Main.storyboard */,
 				61CFE4131F9E1C4300B98CFE /* Assets.xcassets */,
 				61CFE4151F9E1C4300B98CFE /* LaunchScreen.storyboard */,
+				61AFE2381FA60B1800AFCAE7 /* GoogleService-Info.plist */,
 				61CFE4181F9E1C4300B98CFE /* Info.plist */,
 			);
 			path = FindYourDreamJob;
@@ -201,9 +231,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 61CFE41B1F9E1C4300B98CFE /* Build configuration list for PBXNativeTarget "FindYourDreamJob" */;
 			buildPhases = (
+				FDBEAF38F4D72D3DB1FEF0BF /* [CP] Check Pods Manifest.lock */,
 				61CFE4051F9E1C4300B98CFE /* Sources */,
 				61CFE4061F9E1C4300B98CFE /* Frameworks */,
 				61CFE4071F9E1C4300B98CFE /* Resources */,
+				F4F6B6E1DC3474CD1C84FBF0 /* [CP] Embed Pods Frameworks */,
+				617848EB8025B530A826F54C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -254,12 +287,71 @@
 			buildActionMask = 2147483647;
 			files = (
 				61CFE4171F9E1C4300B98CFE /* LaunchScreen.storyboard in Resources */,
+				61AFE2391FA60B1800AFCAE7 /* GoogleService-Info.plist in Resources */,
 				61CFE4141F9E1C4300B98CFE /* Assets.xcassets in Resources */,
 				61CFE4121F9E1C4300B98CFE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		617848EB8025B530A826F54C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FindYourDreamJob/Pods-FindYourDreamJob-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F4F6B6E1DC3474CD1C84FBF0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-FindYourDreamJob/Pods-FindYourDreamJob-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FindYourDreamJob/Pods-FindYourDreamJob-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FDBEAF38F4D72D3DB1FEF0BF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FindYourDreamJob-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		61CFE4051F9E1C4300B98CFE /* Sources */ = {
@@ -279,6 +371,7 @@
 				611CFE271F9E5EA8007BD0FC /* CustomView.swift in Sources */,
 				6155B6921F9F3461007AAFDD /* applymentsVC.swift in Sources */,
 				61D631BA1FA5E28500C52776 /* ApplymentsCell.swift in Sources */,
+				61AFE23B1FA6182000AFCAE7 /* ApplyedJobsVC.swift in Sources */,
 				611CFE231F9E4EAF007BD0FC /* asCompanyVC.swift in Sources */,
 				611CFE1F1F9E2AB3007BD0FC /* Constants.swift in Sources */,
 				611CFE251F9E4EC1007BD0FC /* asUserVC.swift in Sources */,
@@ -424,6 +517,7 @@
 		};
 		61CFE41C1F9E1C4300B98CFE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C8D35B04255EF94F264EE9BB /* Pods-FindYourDreamJob.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -439,6 +533,7 @@
 		};
 		61CFE41D1F9E1C4300B98CFE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DC819C8E52D8FF3598D5F505 /* Pods-FindYourDreamJob.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
