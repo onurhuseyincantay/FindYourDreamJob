@@ -41,4 +41,29 @@ extension LoginVC {
             return true
         }
 }
+extension UIImageView{
+    func loadImages(urlString : String) {
+        self.image = nil
+        if let cachedImage = imageCache.object(forKey: urlString as NSString) as? UIImage{
+            self.image = cachedImage // tekrar tekrar download etmesin cache den çeksin
+            return
+        }
+        if let url = URL(string : urlString){
+            URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
+                if error != nil {
+                    print(error.debugDescription)
+                    return
+                }
+                DispatchQueue.main.async {
+                    if let downloadImage = UIImage(data: data!){
+                        imageCache.setObject(downloadImage, forKey: urlString as NSString)
+                        self.image = downloadImage
+                    }
+                }
+            }).resume()
+        }
+    }
+        
+    
+}
 

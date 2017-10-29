@@ -21,6 +21,7 @@ class LoginVC: UIViewController ,UITextFieldDelegate{
     
     
        override func viewDidLoad() {
+        
         super.viewDidLoad()
         emailText.delegate = self
         passwordText.delegate = self
@@ -51,7 +52,7 @@ class LoginVC: UIViewController ,UITextFieldDelegate{
     }
     @IBAction func signInWithLinkedIn(_ sender: RoundedButton) {
         
-    }
+ }
     
     
     func registerPressed() {
@@ -59,10 +60,10 @@ class LoginVC: UIViewController ,UITextFieldDelegate{
     }
     func loginPressed() {
         
-       performSegue(withIdentifier: "asCompany", sender: nil)
+      //performSegue(withIdentifier: "asCompany", sender: nil)
         
         
-         //performSegue(withIdentifier: "asUser", sender: nil)
+  performSegue(withIdentifier: "asUser", sender: nil)
         
     }
 }

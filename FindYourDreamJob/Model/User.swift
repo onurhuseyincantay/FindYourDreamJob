@@ -9,22 +9,26 @@
 import Foundation
 
 class User {
-    private var _companyNameorNickname : String!
-    private var _email : String!
-    private var _password : String!
-    
-    var companyNameorNickname : String {
+    private var _companyNameorNickname : String?
+    private var _email : String?
+    private var _password : String?
+    private var _profileImageURL : String?
+    var companyNameorNickname : String! {
         return _companyNameorNickname
     }
-    var email : String{
+    var email : String!{
         return _email
     }
     var password : String!{
         return _password
     }
-    init(companyNameorNickname : String  , email : String, password : String) {
+    var profileImageURL : String!{
+        return _profileImageURL
+    }
+    init(companyNameorNickname : String  , email : String, password : String,profileimageURL:String = "link gelicek") {
     self._companyNameorNickname = companyNameorNickname
     self._email = email
     self._password = password
+    self._profileImageURL = profileImageURL // default olarak çekiceği yer belli tekrar tekrar placeholder image yüklemesin
     }
 }
