@@ -18,7 +18,7 @@ class LoginVC: UIViewController ,UITextFieldDelegate{
     @IBOutlet weak var loginRegisterBtn: RoundedButton!
     @IBOutlet weak var companyRegStackView: UIStackView!
     typealias finishedLoadingData = () -> ()
-       override func viewDidLoad() {
+    override func viewDidLoad() {
         
         super.viewDidLoad()
         emailText.delegate = self
@@ -42,7 +42,7 @@ class LoginVC: UIViewController ,UITextFieldDelegate{
         switch segmentedControl.selectedSegmentIndex {
         case 0:
             loginPressed {
-                    self.performSegue()
+                self.performSegue()
             }
             
         case 1:
@@ -58,6 +58,9 @@ class LoginVC: UIViewController ,UITextFieldDelegate{
     }
     func performSegue(){
         if (CURRENT_USER is CompanyUser){
+            /*
+             burada bir sıkıntı var anlamadım closure kullanarak fonksiyon bitmeden bu işlemler gerçeleşmesin dedim ancak button a ilk bastıgında işlemleri yapıyor alt fonksiyona girmiyor 2. basısımda ancak alt fonksiyona giriyor
+             */
             self.performSegue(withIdentifier: "asCompany", sender: nil)
         }else if (CURRENT_USER != nil){
             self.performSegue(withIdentifier: "asUser", sender: nil)
@@ -67,7 +70,16 @@ class LoginVC: UIViewController ,UITextFieldDelegate{
     
     }
     
-    
+    func stringToDictionary(text : String) -> [String : AnyObject]? {
+        if let data  = text.data(using: .utf8){
+            do{
+                return try JSONSerialization.jsonObject(with: data, options: []) as? [String: AnyObject]
+            }catch{
+                print(error.localizedDescription)
+            }
+        }
+        return nil
+    }
     func registerPressed() {
         if let email = emailText.text,let password = passwordText.text,let username = companyNameText.text{
             Firebase.Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
@@ -102,7 +114,7 @@ class LoginVC: UIViewController ,UITextFieldDelegate{
                     print(error.debugDescription)
                     return
                 }
-                 CURRENT_USER = CompanyUser(workArea: values["WorkArea"]!, companyNameorNickname: values["Username"]! , email: values["Email"]! , password: values["Password"]! )
+                CURRENT_USER = CompanyUser(workArea: values["WorkArea"]!, companyNameorNickname: values["Username"]! , email: values["Email"]! , password: values["Password"]! )
             })
             
         }else{
@@ -114,7 +126,7 @@ class LoginVC: UIViewController ,UITextFieldDelegate{
                 CURRENT_USER = User(companyNameorNickname: values["Username"]!, email: values["Email"]! , password: values["Password"]!)
                 
             })
-            }
+        }
     }
     
     func loginPressed(completed : @escaping finishedLoadingData) {
@@ -144,14 +156,15 @@ class LoginVC: UIViewController ,UITextFieldDelegate{
                     })
                 }
                 
-               completed()
+                completed()
             })
-          
             
+            
+        }
+        
+        
     }
-      
-       
-}
     
     
 }
+
