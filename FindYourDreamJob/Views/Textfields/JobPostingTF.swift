@@ -14,6 +14,8 @@ class JobPostingTF: ProfileVCTextFields {
         super.awakeFromNib()
         self.attributedPlaceholder = NSAttributedString(string: placeholder!, attributes: [NSAttributedStringKey.foregroundColor: UIColor.black])
         layer.borderColor = UIColor.black.cgColor
+        self.returnKeyType = .done
+        
     }
 
 }

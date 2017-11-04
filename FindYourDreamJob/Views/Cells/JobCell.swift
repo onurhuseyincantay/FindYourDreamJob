@@ -21,24 +21,25 @@ class JobCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-    func setParameters(job:Jobs) {
+    func setParameters(job:Job) {
         if(CURRENT_USER is CompanyUser){
             if let companyUser = CURRENT_USER as? CompanyUser{
-                self.workAreaLabel.text = companyUser.workArea
                 self.companyNameLabel.isHidden = true
                 if let url = companyUser.profileImageURL{
                     self.profileImage.loadImages(urlString:url)
                 }
             }
-            }
+        }
         self.companyNameLabel.text = job.companyName
         if let url = job.companyImageURL{
           self.profileImage.loadImages(urlString:url)
         }
+        self.workAreaLabel.text = job.workArea
         self.jobTitleLabel.text = job.title
         self.jobDescription.text = job.description
         self.captionLabel.text = job.caption
         self.employmentTypeLabel.text = job.employmentType
+        print(job.description)
     }
 }
 

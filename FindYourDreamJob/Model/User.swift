@@ -25,10 +25,10 @@ class User {
     var profileImageURL : String!{
         return _profileImageURL
     }
-    init(companyNameorNickname : String  , email : String, password : String,profileimageURL:String = "link gelicek") {
+    init(companyNameorNickname : String  , email : String, password : String,profileimageURL:String = "https://firebasestorage.googleapis.com/v0/b/findyourdreamjob-410a4.appspot.com/o/ProfileImages%2Fperson.png?alt=media&token=148f5e6e-eb79-4e61-bf37-305c40422b83") {
     self._companyNameorNickname = companyNameorNickname
     self._email = email
     self._password = password
-    self._profileImageURL = profileImageURL // default olarak çekiceği yer belli tekrar tekrar placeholder image yüklemesin
+    self._profileImageURL = profileimageURL // default olarak çekiceği yer belli tekrar tekrar placeholder image yüklemesin
     }
 }
