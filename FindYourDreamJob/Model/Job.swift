@@ -11,6 +11,8 @@ import Foundation
 class Job {
     
     private var _CompanyName : String?
+    private var _jobKey : String?
+    private var _companyKey: String?
     private var _description : String?
     private var _title : String?
     private var _employmentType: String?
@@ -19,7 +21,21 @@ class Job {
     private var _timeStamp :  NSNumber?
     private var _companyImageURL : String?
     private var _workArea : String?
-    
+    var companyKey:String!{
+        get{
+          return  _companyKey
+        }set{
+            _companyKey = newValue
+        }
+    }
+    var jobKey : String!{
+        get{
+            return _jobKey
+        }
+        set{
+            _jobKey = newValue
+        }
+    }
     var workArea : String!{
         get{
             return _workArea

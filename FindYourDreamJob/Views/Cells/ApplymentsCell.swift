@@ -20,12 +20,16 @@ class ApplymentsCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-    func setParameters(employmentType:String,jobTitle:String,userName:String,ImageURL:String,captionText:String) {
-        self.employmentTypeLabel.text = employmentType
-        self.jobTitleLabel.text = jobTitle
-        self.userNameLabel.text = userName
-        self.caption.text = captionText
-        self.profileImage.loadImages(urlString: ImageURL)
+    func setParameters(job:Job) {
+        
+        self.userNameLabel.text = job.companyName
+        if let url = job.companyImageURL{
+            self.profileImage.loadImages(urlString:url)
+        }
+        self.jobTitleLabel.text = job.title
+        self.employmentTypeLabel.text = job.employmentType
+        self.caption.text = job.caption
+        print(job.description)
     }
    
 

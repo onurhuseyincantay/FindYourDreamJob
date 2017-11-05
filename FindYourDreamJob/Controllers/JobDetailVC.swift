@@ -17,21 +17,23 @@ class JobDetailVC: UIViewController {
     @IBOutlet weak var jobtitle: UILabel!
     @IBOutlet weak var country: UILabel!
     @IBOutlet weak var caption: UILabel!
+    @IBOutlet weak var workArea: UILabel!
     @IBOutlet weak var companyName: UILabel!
-    var job = Job(){
-        didSet{
-            jobDescription.text = job.description
-            companyImage.loadImages(urlString: job.companyImageURL)
-            employmentType.text = job.employmentType
-            jobtitle.text = job.title
-            country.text = job.jobPlace
-            caption.text = job.caption
-            companyName.text = job.companyName
-        }
-    }
+    var job = Job()
     override func viewDidLoad() {
         super.viewDidLoad()
         applyButtonSettings()
+        self.setUI()
+    }
+    func setUI() {
+        jobDescription.text = self.job.description
+        companyImage.loadImages(urlString: job.companyImageURL)
+        employmentType.text = self.job.employmentType
+        jobtitle.text = self.job.title
+        country.text = self.job.jobPlace
+        caption.text = self.job.caption
+        companyName.text = self.job.companyName
+        workArea.text = self.job.workArea
     }
     
     func applyButtonSettings()  {
@@ -45,8 +47,10 @@ class JobDetailVC: UIViewController {
     }
     
     @IBAction func ApplyPressed(_ sender: Any) {
-        
-    
+        let values : [String:AnyObject] = [ (CURRENT_USER?.userKey)!:"1" as AnyObject]
+        Database.ds.REF_APPLYMENTS.child(job.jobKey).updateChildValues(values)
+        print("Onur : Applyment Posted")
+        self.dismiss(animated: true, completion: nil)
     }
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
         return UIInterfaceOrientationMask.portrait

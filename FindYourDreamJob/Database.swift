@@ -17,9 +17,17 @@ class Database {
     private var _REF_PROFILE_IMAGES = DB_STORAGEBASE.child("ProfileImages")
     private var _REF_BASE = DB_BASE
     private var _REF_USERS = DB_BASE.child("Users")
+    private var _REF_APPLYMENTS = DB_BASE.child("Applyments")
     private var _REF_COMPANY_USERS = DB_BASE.child("CompanyUsers")
+    private var _FIR_AUTH = Firebase.Auth.auth()
+    var FIR_AUTH : Auth{
+        return _FIR_AUTH
+    }
     var REF_PROFILE_IMAGES : StorageReference {
         return _REF_PROFILE_IMAGES
+    }
+    var REF_APPLYMENTS : DatabaseReference{
+        return _REF_APPLYMENTS
     }
     var REF_USERS : DatabaseReference{
         return _REF_USERS

@@ -45,6 +45,7 @@ class asUserVC: UIViewController,UITabBarDelegate,UITableViewDataSource,UITableV
                 job.jobPlace = dict["jobPlace"] as? String
                 job.timeStamp = dict["timestamp"] as? NSNumber
                 job.title = dict["title"] as? String
+                job.jobKey = dict["jobKey"] as? String
                 self.jobs.append(job)
             }
             self.attempReloadTable()

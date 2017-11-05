@@ -145,7 +145,7 @@ class LoginVC: UIViewController ,UITextFieldDelegate{
                     guard let uid = user?.uid else{
                         return
                     }
-                    var values = ["Username": username , "Email": email , "Password": password,"isCompany":"0"]
+                    var values = ["Username": username , "Email": email , "Password": password,"isCompany":"0","About":""]
                     if self.companyRegistiration.isOn{
                         guard let workArea = self.workArea.text else {
                             return
@@ -168,17 +168,12 @@ class LoginVC: UIViewController ,UITextFieldDelegate{
     
     func registeringUserWithUniueqID(uid:String,values: [String:String])  {
             if values["isCompany"] == "1" {
-                    CURRENT_USER = CompanyUser(workArea: values["WorkArea"]!, companyNameorNickname: values["Username"]! , email: values["Email"]! , password: values["Password"]! )
+                CURRENT_USER = CompanyUser(workArea: values["WorkArea"]!, companyNameorNickname: values["Username"]! , email: values["Email"]! , password: values["Password"]!, userkey: uid, about: values["About"]! )
             }else{
-                CURRENT_USER = User(companyNameorNickname: values["Username"]!, email: values["Email"]! , password: values["Password"]!)
+                CURRENT_USER = User(companyNameorNickname: values["Username"]!, email: values["Email"]! , password: values["Password"]!, userkey: uid,about:values["About"]!)
             }
-        var neededValues = [String:String]()
-            neededValues["Username"] = values["Username"]
-        neededValues["Email"] = values["Email"]
-        neededValues["Password"] = values["Password"]
-        neededValues["PictureUrl"] = values["PictureUrl"]
-        neededValues["isCompany"] = values["isCompany"]
-            Database.ds.REF_USERS.child(uid).updateChildValues(neededValues, withCompletionBlock: { (error, ref) in
+        
+            Database.ds.REF_USERS.child(uid).updateChildValues(values, withCompletionBlock: { (error, ref) in
             if error != nil{
                 print(error.debugDescription)
                 return
@@ -201,10 +196,10 @@ class LoginVC: UIViewController ,UITextFieldDelegate{
                         Database.ds.REF_USERS.child(userID).observe(.value, with: { (snapshot) in
                             if let dict = snapshot.value as? Dictionary <String,String> {
                                 if dict["isCompany"] == "1"{
-                                    CURRENT_USER = CompanyUser(workArea: dict["WorkArea"]! , companyNameorNickname: dict["Username"]!, email: dict["Email"]!, password: dict["Password"]!)
+                                    CURRENT_USER = CompanyUser(workArea: dict["WorkArea"]! , companyNameorNickname: dict["Username"]!, email: dict["Email"]!, password: dict["Password"]!, userkey: userID,about:dict["About"]!)
                                     completed()
                                 }else{
-                                    CURRENT_USER = User(companyNameorNickname: dict["Username"]!, email: dict["Email"]!, password: dict["Password"]!)
+                                    CURRENT_USER = User(companyNameorNickname: dict["Username"]!, email: dict["Email"]!, password: dict["Password"]!, userkey: userID,about:dict["About"]!)
                                     completed()
                                 }
                             }
@@ -226,12 +221,13 @@ class LoginVC: UIViewController ,UITextFieldDelegate{
                     }
                     if let userID = user?.uid{
                         Database.ds.REF_USERS.child(userID).observe(.value, with: { (snapshot) in
+                            let id = snapshot.key
                             if let dict = snapshot.value as? Dictionary <String,String> {
                                 if dict["isCompany"] == "1"{
-                                    CURRENT_USER = CompanyUser(workArea: dict["WorkArea"]! , companyNameorNickname: dict["Username"]!, email: dict["Email"]!, password: dict["Password"]!)
+                                    CURRENT_USER = CompanyUser(workArea: dict["WorkArea"]! , companyNameorNickname: dict["Username"]!, email: dict["Email"]!, password: dict["Password"]!, userkey: id, about:dict["About"]!)
                                     completed()
                                 }else{
-                                    CURRENT_USER = User(companyNameorNickname: dict["Username"]!, email: dict["Email"]!, password: dict["Password"]!)
+                                    CURRENT_USER = User(companyNameorNickname: dict["Username"]!, email: dict["Email"]!, password: dict["Password"]!, userkey: id,about:dict["About"]!)
                                     completed()
                                 }
                             }

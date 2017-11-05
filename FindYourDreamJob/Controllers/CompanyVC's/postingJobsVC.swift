@@ -66,14 +66,16 @@ class postingJobsVC: UIViewController,UITabBarDelegate,UITextFieldDelegate,UITex
             job.description = jobDescription.text
             job.employmentType = employmentType.text
             job.timeStamp = Date().timeIntervalSince1970 as NSNumber
+            job.companyKey = CURRENT_USER?.userKey
         }
        return job
     }
 
     @IBAction func postPressed(_ sender: Any) {
         let job = getValues()
-        let values : [String:AnyObject] = ["Caption":job?.caption as AnyObject,"companyName":job?.companyName as AnyObject,"description":job?.description as AnyObject,"companyImageURL":job?.companyImageURL as AnyObject,"employmentType":job?.employmentType as AnyObject,"jobPlace":job?.jobPlace as AnyObject,"timestamp":job?.timeStamp as AnyObject,"title":job?.title as AnyObject,"workArea" : job?.workArea as AnyObject]
-        Database.ds.REF_JOBS.childByAutoId().updateChildValues(values)
+        let ref = Database.ds.REF_JOBS.childByAutoId()
+        let values : [String:AnyObject] = ["Caption":job?.caption as AnyObject,"companyName":job?.companyName as AnyObject,"description":job?.description as AnyObject,"companyImageURL":job?.companyImageURL as AnyObject,"employmentType":job?.employmentType as AnyObject,"jobPlace":job?.jobPlace as AnyObject,"timestamp":job?.timeStamp as AnyObject,"title":job?.title as AnyObject,"workArea" : job?.workArea as AnyObject,"jobKey":ref.key as AnyObject,"companyKey":job!.companyKey as AnyObject]
+        ref.updateChildValues(values)
     }
     
 }
