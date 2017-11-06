@@ -22,7 +22,6 @@ class JobDetailVC: UIViewController {
     var job = Job()
     override func viewDidLoad() {
         super.viewDidLoad()
-        applyButtonSettings()
         self.setUI()
     }
     func setUI() {
@@ -36,18 +35,10 @@ class JobDetailVC: UIViewController {
         workArea.text = self.job.workArea
     }
     
-    func applyButtonSettings()  {
-        if CURRENT_USER is CompanyUser{
-            applyButton.isEnabled = false
-            applyButton.isHidden = true
-        }else{
-            applyButton.isEnabled = true
-            applyButton.isHidden = false
-        }
-    }
+   
     
     @IBAction func ApplyPressed(_ sender: Any) {
-        let values : [String:AnyObject] = [ (CURRENT_USER?.userKey)!:"1" as AnyObject]
+        let values : [String:AnyObject] = [ (CURRENT_USER?.userKey)!:"0" as AnyObject]
         Database.ds.REF_APPLYMENTS.child(job.jobKey).updateChildValues(values)
         print("Onur : Applyment Posted")
         self.dismiss(animated: true, completion: nil)

@@ -16,6 +16,7 @@ class ApplyedJobsVC: UIViewController,UITabBarDelegate,UITableViewDelegate,UITab
     @IBOutlet weak var tabBar: UITabBar!
     var applyedJobKeys = [String]()
     var applyedJobDetails = [Job]()
+     var companyAccepted = [String:String]()
     typealias finishGetingData = ()->()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,21 +40,46 @@ class ApplyedJobsVC: UIViewController,UITabBarDelegate,UITableViewDelegate,UITab
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 132
     }
+   
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return applyedJobDetails.count
+        return applyedJobKeys.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "applymentsCell", for: indexPath) as! ApplymentsCell
+        if let accepted:String = companyAccepted[applyedJobKeys[indexPath.row]] {
+            if accepted == "1"{
+                cell.backgroundColor = UIColor(red: 104/255, green: 239/255, blue: 173/255, alpha: 0.5)
+            }
+            
+        }
             cell.setParameters(job: applyedJobDetails[indexPath.row])
         return cell
     }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        let jobKey = applyedJobDetails[indexPath.row].jobKey
+        Database.ds.REF_APPLYMENTS.child(jobKey!).removeValue { (error, ref) in
+            if error != nil {
+                print(error.debugDescription)
+                return
+            }
+            self.applyedJobKeys.remove(at: indexPath.row)
+            self.tableView.reloadData()
+        }      
+        }
+    
     func getApplyedJobs(completed:@escaping finishGetingData)  {
         Database.ds.REF_APPLYMENTS.observe(.value) { (snapshot) in
             if let snapshots = snapshot.children.allObjects as? [DataSnapshot]{
                 for snap in snapshots{
                     if let userID = snap.value as? Dictionary<String,AnyObject>{
-                        if let _ = userID[(CURRENT_USER?.userKey)!] as? String {
+                        if let value = userID[(CURRENT_USER?.userKey)!] as? String {
+                            if value == "0" || value == "1"{
+                                if value == "1"{
+                                    self.companyAccepted[snap.key] = value
+                                }else{
+                                    self.companyAccepted[snap.key] = value
+                                }
                             self.applyedJobKeys.append(snap.key)
                             print(snap.key)
                             
@@ -65,6 +91,8 @@ class ApplyedJobsVC: UIViewController,UITabBarDelegate,UITableViewDelegate,UITab
         }
         }
         
+    }
+    
     }
     func getApplyedJobInfo(completed:@escaping finishGetingData)  {
         Database.ds.REF_JOBS.observe(.value) { (snapshot) in
@@ -94,4 +122,5 @@ class ApplyedJobsVC: UIViewController,UITabBarDelegate,UITableViewDelegate,UITab
         
         
     }
+    
 }

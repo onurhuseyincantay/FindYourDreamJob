@@ -10,7 +10,8 @@ import UIKit
 
 
 class postingJobsVC: UIViewController,UITabBarDelegate,UITextFieldDelegate,UITextViewDelegate{
-
+    @IBOutlet weak var profileImage: RoundedImage!
+    
     @IBOutlet weak var jobDescription: UITextView!
     @IBOutlet weak var jobPlace: JobPostingTF!
     @IBOutlet weak var employmentType: JobPostingTF!
@@ -20,6 +21,7 @@ class postingJobsVC: UIViewController,UITabBarDelegate,UITextFieldDelegate,UITex
     override func viewDidLoad() {
         super.viewDidLoad()
         Delegates()
+        self.profileImage.loadImages(urlString: (CURRENT_USER?.profileImageURL)!)
     }
     func Delegates() {
         tabBar.delegate = self

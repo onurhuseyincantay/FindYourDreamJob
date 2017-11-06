@@ -9,13 +9,15 @@
 import UIKit
 import Firebase
 
-class asUserVC: UIViewController,UITabBarDelegate,UITableViewDataSource,UITableViewDelegate{
+class asUserVC: UIViewController,UITabBarDelegate,UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate{
     
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tabBar: UITabBar!
     
     @IBOutlet weak var tableView: UITableView!
    
     var jobs = [Job]()
+    var filteredjobs = [Job]()
     
     let cellId = "jobCell"
     override func viewDidLoad() {
@@ -23,6 +25,24 @@ class asUserVC: UIViewController,UITabBarDelegate,UITableViewDataSource,UITableV
         Delegates()
         getJobDetails()
         self.attempReloadTable()
+    }
+    var inSearchMode : Bool = false
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text == nil || searchBar.text == "" {
+            
+            inSearchMode = false
+            self.attempReloadTable()
+            view.endEditing(true)
+            
+        } else {
+            
+            inSearchMode = true
+            
+            let lower = searchBar.text!
+            
+            filteredjobs    = jobs.filter({$0.description.range(of: lower) != nil})
+            self.attempReloadTable()
+        }
     }
     func getJobDetails () {
         Database.ds.REF_JOBS.observe(.childAdded, with: { (snapshot) in
@@ -68,6 +88,7 @@ class asUserVC: UIViewController,UITabBarDelegate,UITableViewDataSource,UITableV
     func Delegates()  {
         tableView.delegate = self
         tabBar.delegate = self
+        searchBar.delegate = self
         tabBar.selectedItem = tabBar.items?[0]
         tableView.dataSource = self
     }
@@ -79,6 +100,9 @@ class asUserVC: UIViewController,UITabBarDelegate,UITableViewDataSource,UITableV
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if inSearchMode{
+            return filteredjobs.count
+        }
         return jobs.count
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -87,17 +111,23 @@ class asUserVC: UIViewController,UITabBarDelegate,UITableViewDataSource,UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! JobCell
-        print(jobs[indexPath.row].caption)
-        cell.setParameters(job: jobs[indexPath.row])
+        let job : Job!
+        if inSearchMode {
+            job = filteredjobs [indexPath.row]
+            cell.setParameters(job: job)
+        }else{
+            job  = jobs[indexPath.row]
+            cell.setParameters(job:job)
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "jobSelect", sender: jobs[indexPath.row])
+        performSegue(withIdentifier: "userJobSelect", sender: jobs[indexPath.row])
         
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "jobSelect"{
+        if segue.identifier == "userJobSelect"{
             if let nextScene = segue.destination as? JobDetailVC{
                 nextScene.job = sender as! Job
             }

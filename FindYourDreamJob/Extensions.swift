@@ -41,6 +41,8 @@ extension LoginVC {
             return true
         }
 }
+
+
 extension UIImageView{
     func loadImages(urlString : String) {
         self.image = nil

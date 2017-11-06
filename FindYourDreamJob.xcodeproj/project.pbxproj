@@ -155,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				611CFE241F9E4EC1007BD0FC /* asUserVC.swift */,
+				61988F481F9E890A007C5035 /* JobDetailVC.swift */,
 				61AFE23A1FA6182000AFCAE7 /* ApplyedJobsVC.swift */,
 			);
 			path = "UserVC's";
@@ -205,7 +206,6 @@
 				61CFE40E1F9E1C4300B98CFE /* LoginVC.swift */,
 				6155B68E1F9F3363007AAFDD /* CompanyVC's */,
 				61988F4A1F9E9096007C5035 /* UserVC's */,
-				61988F481F9E890A007C5035 /* JobDetailVC.swift */,
 				61988F461F9E80FD007C5035 /* ProfileVC.swift */,
 			);
 			path = Controllers;

@@ -14,8 +14,8 @@ class CompanyUser: User {
         return _workArea
     }
 
-    init(workArea:String,companyNameorNickname: String, email: String, password: String,userkey:String,about:String) {
-        super.init(companyNameorNickname: companyNameorNickname, email: email, password: password, userkey: userkey,about : about)
+    init(workArea:String,companyNameorNickname: String, email: String, password: String,userkey:String,about:String,companyProfileimageURL : String) {
+        super.init(companyNameorNickname: companyNameorNickname, email: email, password: password, profileimageURL:companyProfileimageURL, userkey: userkey,about : about)
         _workArea = workArea
     }
 }

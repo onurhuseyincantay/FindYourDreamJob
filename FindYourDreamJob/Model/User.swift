@@ -46,7 +46,11 @@ class User {
         return _password
     }
     var profileImageURL : String!{
-        return _profileImageURL
+        get{
+            return _profileImageURL
+        }set{
+             _profileImageURL = newValue
+        }
     }
     init(companyNameorNickname : String  , email : String, password : String,profileimageURL:String = "https://firebasestorage.googleapis.com/v0/b/findyourdreamjob-410a4.appspot.com/o/ProfileImages%2Fperson.png?alt=media&token=148f5e6e-eb79-4e61-bf37-305c40422b83",userkey:String,about : String = "") {
     self._companyNameorNickname = companyNameorNickname

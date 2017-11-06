@@ -43,10 +43,14 @@ class LoginVC: UIViewController ,UITextFieldDelegate{
         case 0:
             loginPressed(completed: {
                 self.performSegue()
+                self.emailText.text = ""
+                self.passwordText.text = ""
             })
         case 1:
             registerPressed {
                 self.performSegue()
+                self.emailText.text = ""
+                self.passwordText.text = ""
             }
             
         default: break
@@ -145,7 +149,7 @@ class LoginVC: UIViewController ,UITextFieldDelegate{
                     guard let uid = user?.uid else{
                         return
                     }
-                    var values = ["Username": username , "Email": email , "Password": password,"isCompany":"0","About":""]
+                    var values = ["Username": username , "Email": email , "Password": password,"isCompany":"0","About":"","profileImageURL":"https://firebasestorage.googleapis.com/v0/b/findyourdreamjob-410a4.appspot.com/o/ProfileImages%2Fperson.png?alt=media&token=148f5e6e-eb79-4e61-bf37-305c40422b83"]
                     if self.companyRegistiration.isOn{
                         guard let workArea = self.workArea.text else {
                             return
@@ -168,7 +172,7 @@ class LoginVC: UIViewController ,UITextFieldDelegate{
     
     func registeringUserWithUniueqID(uid:String,values: [String:String])  {
             if values["isCompany"] == "1" {
-                CURRENT_USER = CompanyUser(workArea: values["WorkArea"]!, companyNameorNickname: values["Username"]! , email: values["Email"]! , password: values["Password"]!, userkey: uid, about: values["About"]! )
+                CURRENT_USER = CompanyUser(workArea: values["WorkArea"]!, companyNameorNickname: values["Username"]! , email: values["Email"]! , password: values["Password"]!, userkey: uid, about: values["About"]!, companyProfileimageURL: values["profileImageURL"]!)
             }else{
                 CURRENT_USER = User(companyNameorNickname: values["Username"]!, email: values["Email"]! , password: values["Password"]!, userkey: uid,about:values["About"]!)
             }
@@ -196,10 +200,10 @@ class LoginVC: UIViewController ,UITextFieldDelegate{
                         Database.ds.REF_USERS.child(userID).observe(.value, with: { (snapshot) in
                             if let dict = snapshot.value as? Dictionary <String,String> {
                                 if dict["isCompany"] == "1"{
-                                    CURRENT_USER = CompanyUser(workArea: dict["WorkArea"]! , companyNameorNickname: dict["Username"]!, email: dict["Email"]!, password: dict["Password"]!, userkey: userID,about:dict["About"]!)
+                                    CURRENT_USER = CompanyUser(workArea: dict["WorkArea"]! , companyNameorNickname: dict["Username"]!, email: dict["Email"]!, password: dict["Password"]!, userkey: userID,about:dict["About"]!, companyProfileimageURL: dict["profileImageURL"]!)
                                     completed()
                                 }else{
-                                    CURRENT_USER = User(companyNameorNickname: dict["Username"]!, email: dict["Email"]!, password: dict["Password"]!, userkey: userID,about:dict["About"]!)
+                                    CURRENT_USER = User(companyNameorNickname: dict["Username"]!, email: dict["Email"]!, password: dict["Password"]!, profileimageURL: dict["profileImageURL"]!, userkey: userID,about:dict["About"]!)
                                     completed()
                                 }
                             }
@@ -224,10 +228,10 @@ class LoginVC: UIViewController ,UITextFieldDelegate{
                             let id = snapshot.key
                             if let dict = snapshot.value as? Dictionary <String,String> {
                                 if dict["isCompany"] == "1"{
-                                    CURRENT_USER = CompanyUser(workArea: dict["WorkArea"]! , companyNameorNickname: dict["Username"]!, email: dict["Email"]!, password: dict["Password"]!, userkey: id, about:dict["About"]!)
+                                    CURRENT_USER = CompanyUser(workArea: dict["WorkArea"]! , companyNameorNickname: dict["Username"]!, email: dict["Email"]!, password: dict["Password"]!, userkey: id, about:dict["About"]!, companyProfileimageURL:  dict["profileImageURL"]!)
                                     completed()
                                 }else{
-                                    CURRENT_USER = User(companyNameorNickname: dict["Username"]!, email: dict["Email"]!, password: dict["Password"]!, userkey: id,about:dict["About"]!)
+                                    CURRENT_USER = User(companyNameorNickname: dict["Username"]!, email: dict["Email"]!, password: dict["Password"]!, profileimageURL:  dict["profileImageURL"]!, userkey: id, about: dict["About"]!)
                                     completed()
                                 }
                             }

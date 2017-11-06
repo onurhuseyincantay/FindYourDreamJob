@@ -8,25 +8,58 @@
 
 import UIKit
 
-class asCompanyVC: UIViewController,UITableViewDataSource,UITableViewDelegate ,UITabBarDelegate{
+class asCompanyVC: UIViewController,UITableViewDataSource,UITableViewDelegate ,UITabBarDelegate,UISearchBarDelegate{
 
+   
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tabBar: UITabBar!
     @IBOutlet weak var tableView: UITableView!
     
     let cellId = "jobCell"
     var jobs = [Job]()
+    var filteredjobs = [Job]()
+    typealias finishLoadingData = ()->()
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        searchBar.delegate = self
         tabBar.delegate = self
-        getJobDetails()
+        getJobDetails{
+            self.attempReloadTable()
+        }
 
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.attempReloadTable()
+    }
+    var inSearchMode : Bool = false
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text == nil || searchBar.text == "" {
+            
+            inSearchMode = false
+            self.attempReloadTable()
+            view.endEditing(true)
+            
+        } else {
+            
+            inSearchMode = true
+            
+            let lower = searchBar.text!
+            
+            filteredjobs    = jobs.filter({$0.description.range(of: lower) != nil})
+            self.attempReloadTable()
+        }
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if inSearchMode{
+            return filteredjobs.count
+        }
         return jobs.count
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -34,19 +67,27 @@ class asCompanyVC: UIViewController,UITableViewDataSource,UITableViewDelegate ,U
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! JobCell
-        print(jobs[indexPath.row].caption)
-        cell.setParameters(job: jobs[indexPath.row])
+        let job : Job!
+        if inSearchMode {
+            job = filteredjobs [indexPath.row]
+            cell.setParameters(job: job)
+        }else{
+            job  = jobs[indexPath.row]
+            cell.setParameters(job:job)
+        }
         return cell
     }
-    func getJobDetails () {
+    func getJobDetails (completed:@escaping finishLoadingData) {
         Database.ds.REF_JOBS.observe(.childAdded, with: { (snapshot) in
-            self.fetchJobsAndAttemptReload(jobId: snapshot.key)
+            self.fetchJobsAndAttemptReload(jobId: snapshot.key, completed: {
+                completed()
+            })
             print(snapshot)
         }) { (error) in
             print("Onur : \(error.localizedDescription)")
         }
     }
-    private func fetchJobsAndAttemptReload(jobId : String){
+    private func fetchJobsAndAttemptReload(jobId : String,completed:@escaping finishLoadingData){
         Database.ds.REF_JOBS.child(jobId).observeSingleEvent(of: .value, with: { (snapshot) in
             let job = Job()
             if let dict = snapshot.value as? Dictionary<String,AnyObject>{
@@ -63,14 +104,16 @@ class asCompanyVC: UIViewController,UITableViewDataSource,UITableViewDelegate ,U
                 job.companyKey = dict["companyKey"] as? String
                 if(CURRENT_USER?.userKey == job.companyKey){
                    self.jobs.append(job)
+                    
+                    completed()
                 }
             }
-            self.attempReloadTable()
+            
         }) { (error) in
             print("ONUR : \(error.localizedDescription)")
         }
     }
-    private func attempReloadTable(){
+     public func attempReloadTable(){
         self.jobs.sort(by: { (job1, job2) -> Bool in
             return job1.timeStamp!.intValue > job2.timeStamp!.intValue
         })
@@ -88,7 +131,7 @@ class asCompanyVC: UIViewController,UITableViewDataSource,UITableViewDelegate ,U
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "jobSelect"{
-            if let nextScene = segue.destination as? JobDetailVC{
+            if let nextScene = segue.destination as? applymentsVC{
                 nextScene.job = sender as! Job
             }
         }
@@ -101,9 +144,6 @@ class asCompanyVC: UIViewController,UITableViewDataSource,UITableViewDelegate ,U
         case 2:
             performSegue(withIdentifier: "companyProfile", sender: nil)
             tabBar.selectedItem = tabBar.items?[0]
-        
-        case 3: performSegue(withIdentifier: "Applyments", sender: nil)
-        tabBar.selectedItem = tabBar.items?[0]
         default:break
             
         }
@@ -111,8 +151,11 @@ class asCompanyVC: UIViewController,UITableViewDataSource,UITableViewDelegate ,U
     
     
     @IBAction func logoutButton(_ sender: UIButton) {
+        CURRENT_USER = nil
+        imageCache.removeAllObjects()
         self.dismiss(animated: true, completion: nil)
     }
+    
     
     
 }

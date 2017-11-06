@@ -265,7 +265,7 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JCN-nX-qd3">
                                                             <rect key="frame" x="8" y="8" width="343" height="242.5"/>
                                                             <subviews>
-                                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="JPc-5I-deR">
+                                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="JPc-5I-deR">
                                                                     <rect key="frame" x="8" y="136.5" width="327" height="100"/>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
@@ -396,12 +396,12 @@
                         <viewLayoutGuide key="safeArea" id="Cwv-TK-Do9"/>
                     </view>
                     <connections>
+                        <outlet property="searchBar" destination="JGe-cx-2Gp" id="omm-VT-Jxq"/>
                         <outlet property="tabBar" destination="q93-IO-mfy" id="BLz-tW-wot"/>
                         <outlet property="tableView" destination="ohY-hS-VNg" id="ZMP-3L-Pvd"/>
-                        <segue destination="u42-XG-Xln" kind="show" identifier="jobSelect" id="X2u-tB-KLb"/>
                         <segue destination="zF6-Dz-3d5" kind="show" identifier="companyProfile" id="87C-ki-D5c"/>
                         <segue destination="3xz-Jd-1Ri" kind="show" identifier="postingJobs" id="Ua6-V4-ucA"/>
-                        <segue destination="IP6-TA-W9d" kind="show" identifier="Applyments" id="tSm-eW-Mwm"/>
+                        <segue destination="IP6-TA-W9d" kind="show" identifier="jobSelect" id="tSm-eW-Mwm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i0X-0J-ziH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -613,7 +613,7 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xca-hg-zhe">
                                                             <rect key="frame" x="8" y="8" width="343" height="203"/>
                                                             <subviews>
-                                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4ZZ-1V-OLE">
+                                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4ZZ-1V-OLE">
                                                                     <rect key="frame" x="8" y="97" width="327" height="100"/>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
@@ -739,9 +739,10 @@
                         <viewLayoutGuide key="safeArea" id="IKI-mG-rmf"/>
                     </view>
                     <connections>
+                        <outlet property="searchBar" destination="GD0-Rh-Ll8" id="INC-os-LCi"/>
                         <outlet property="tabBar" destination="Vri-fb-A5Z" id="eft-T6-XRg"/>
                         <outlet property="tableView" destination="mDO-wT-DR4" id="oqX-lj-lQB"/>
-                        <segue destination="u42-XG-Xln" kind="showDetail" identifier="jobSelect" id="afj-rZ-g1S"/>
+                        <segue destination="u42-XG-Xln" kind="showDetail" identifier="userJobSelect" id="afj-rZ-g1S"/>
                         <segue destination="zF6-Dz-3d5" kind="show" identifier="userProfile" action="showDetailViewController:sender:" id="84V-Xg-2xc"/>
                         <segue destination="5XR-N8-QtM" kind="show" identifier="applyedJobs" id="7tH-p6-vW1"/>
                     </connections>
@@ -960,7 +961,7 @@
                                     <action selector="postPressed:" destination="3xz-Jd-1Ri" eventType="touchUpInside" id="91p-wH-3Sl"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="YFS-QL-T3B">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="YFS-QL-T3B">
                                 <rect key="frame" x="8" y="390" width="359" height="175"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -999,7 +1000,7 @@
                                     </textField>
                                 </subviews>
                             </stackView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ProfileImage" translatesAutoresizingMaskIntoConstraints="NO" id="E57-Za-gim" customClass="RoundedImage" customModule="FindYourDreamJob" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="E57-Za-gim" customClass="RoundedImage" customModule="FindYourDreamJob" customModuleProvider="target">
                                 <rect key="frame" x="115" y="31" width="145" height="145"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="145" id="CGi-fn-Yru"/>
@@ -1048,6 +1049,7 @@
                         <outlet property="jobDescription" destination="YFS-QL-T3B" id="dam-R4-fLK"/>
                         <outlet property="jobPlace" destination="jFk-Wh-71N" id="NFP-kg-I04"/>
                         <outlet property="jobTitle" destination="n6h-2x-jkv" id="cvj-Sl-cx9"/>
+                        <outlet property="profileImage" destination="E57-Za-gim" id="lP7-WQ-fY6"/>
                         <outlet property="tabBar" destination="Aw1-nY-GhH" id="cTE-c1-vFh"/>
                     </connections>
                 </viewController>
@@ -1219,6 +1221,7 @@
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7h2-x9-duc" customClass="RoundedImage" customModule="FindYourDreamJob" customModuleProvider="target">
                                         <rect key="frame" x="123.5" y="96" width="128" height="128"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="128" id="olu-lI-3M0">
                                                 <variation key="heightClass=compact-widthClass=compact" constant="64"/>
@@ -1464,7 +1467,6 @@
         <image name="applyments" width="28" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="87C-ki-D5c"/>
-        <segue reference="X2u-tB-KLb"/>
+        <segue reference="84V-Xg-2xc"/>
     </inferredMetricsTieBreakers>
 </document>

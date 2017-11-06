@@ -7,8 +7,8 @@
 //
 
 import UIKit
-
-class ApplymentsCell: UITableViewCell {
+class ApplymentsCell: UITableViewCell{
+    
     
 
     @IBOutlet weak var caption: UILabel!
@@ -18,10 +18,11 @@ class ApplymentsCell: UITableViewCell {
     @IBOutlet weak var profileImage: RoundedImage!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+       
     }
+    
     func setParameters(job:Job) {
-        
+    
         self.userNameLabel.text = job.companyName
         if let url = job.companyImageURL{
             self.profileImage.loadImages(urlString:url)
