@@ -23,6 +23,9 @@ class ApplyedJobsVC: UIViewController,UITabBarDelegate,UITableViewDelegate,UITab
         tabBar.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
+        self.applyedJobKeys.removeAll()
+        self.applyedJobDetails.removeAll()
+        self.companyAccepted.removeAll()
         tabBar.selectedItem = tabBar.items?[1]
         self.getApplyedJobs{
             self.getApplyedJobInfo {
@@ -50,8 +53,9 @@ class ApplyedJobsVC: UIViewController,UITabBarDelegate,UITableViewDelegate,UITab
         if let accepted:String = companyAccepted[applyedJobKeys[indexPath.row]] {
             if accepted == "1"{
                 cell.backgroundColor = UIColor(red: 104/255, green: 239/255, blue: 173/255, alpha: 0.5)
+            }else if accepted == "-1"{
+                cell.backgroundColor = UIColor.red.withAlphaComponent(0.5)
             }
-            
         }
             cell.setParameters(job: applyedJobDetails[indexPath.row])
         return cell
@@ -74,17 +78,10 @@ class ApplyedJobsVC: UIViewController,UITabBarDelegate,UITableViewDelegate,UITab
                 for snap in snapshots{
                     if let userID = snap.value as? Dictionary<String,AnyObject>{
                         if let value = userID[(CURRENT_USER?.userKey)!] as? String {
-                            if value == "0" || value == "1"{
-                                if value == "1"{
-                                    self.companyAccepted[snap.key] = value
-                                }else{
-                                    self.companyAccepted[snap.key] = value
-                                }
+                            self.companyAccepted[snap.key] = value
                             self.applyedJobKeys.append(snap.key)
                             print(snap.key)
-                            
-                        }
-                        
+ 
                     }
                 }
                 completed()
